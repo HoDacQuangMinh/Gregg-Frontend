@@ -49,7 +49,7 @@ const Enemy = ({ enemy, onDefeat }) => {
   const enemyAnimations = {
     1: { frames: 24, basePath: '/images/enemies/level1/0_Reaper_Man_Walking' }, 
     2: { frames: 24, basePath: '/images/enemies/level2/1_Reaper_Man_Walking_015' },
-    3: { frames: 24, basePath: '/images/enemies/level3/0_Reaper_Man_Walking' }, // Level 3 uses 0_Reaper_Man_Walking
+    3: { frames: 24, basePath: '/images/enemies/level3/0_Reaper_Man_Walking' },
     4: { frames: 24, basePath: '/images/enemies/level4/0_Reaper_Man_Walking' },
     5: { frames: 24, basePath: '/images/enemies/level5/0_Reaper_Man_Walking' }
   };
@@ -60,19 +60,17 @@ const Enemy = ({ enemy, onDefeat }) => {
   useEffect(() => {
     const frameInterval = setInterval(() => {
       setCurrentFrame(prev => (prev + 1) % animation.frames);
-    }, 80); // Change frame every 80ms for smooth 12.5 FPS animation
+    }, 80);
 
     return () => clearInterval(frameInterval);
   }, [animation.frames]);
 
   const getEnemySprite = () => {
-    // Level 2: 1_Reaper_Man_Walking_015 (1).png, (2).png, etc.
     if (enemy.level === 2) {
       const frameNumber = currentFrame + 1;
       return `${animation.basePath} (${frameNumber}).png`;
     }
     
-    // Level 1, 3, 4, 5: 0_Reaper_Man_Walking_000.png, _001.png, etc.
     const frameNumber = String(currentFrame).padStart(3, '0');
     return `${animation.basePath}_${frameNumber}.png`;
   };
@@ -86,12 +84,12 @@ const Enemy = ({ enemy, onDefeat }) => {
       }}
       onClick={() => onDefeat(enemy)}
     >
+      <div className="enemy-word-display">{enemy.word}</div>
       <img 
         src={getEnemySprite()} 
         alt="Enemy" 
         className="enemy-image"
       />
-      <div className="enemy-word-display">{enemy.word}</div>
       <div className="enemy-shape-hint">{enemy.shape}</div>
     </div>
   );
@@ -109,8 +107,6 @@ const DefeatedEnemy = ({ enemy }) => {
     >
       <div className="defeated-icon">💥</div>
       <div className="defeated-text">SLAYED!</div>
-      {/* Replace with custom image: */}
-      {/* <img src="/images/enemy-defeated.png" alt="Slayed" className="defeated-image" /> */}
     </div>
   );
 };
@@ -125,7 +121,7 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
   const [currentPath, setCurrentPath] = useState([]);
   const [enemiesDefeated, setEnemiesDefeated] = useState(0);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
-  const [defeatedEnemies, setDefeatedEnemies] = useState([]); // Track defeated enemies for animation
+  const [defeatedEnemies, setDefeatedEnemies] = useState([]);
   
   const canvasRef = useRef(null);
   const animationRef = useRef();
@@ -153,7 +149,7 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
       x: 100,
       y: 20 + Math.random() * 60,
       speed: config.speed,
-      level: level  // Add level to enemy for image selection
+      level: level
     };
 
     setEnemies(prev => [...prev, newEnemy]);
@@ -326,10 +322,8 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
   const handleDrawingSuccess = () => {
     setScore(s => s + 100 * level);
     
-    // Add defeated enemy to animation list
     setDefeatedEnemies(prev => [...prev, { ...activeEnemy, id: Date.now() }]);
     
-    // Remove after animation (1 second)
     setTimeout(() => {
       setDefeatedEnemies(prev => prev.slice(1));
     }, 1000);
@@ -373,22 +367,26 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
           enemiesRequired={config.enemiesRequired}
         />
 
-        <div className="battlefield" data-level={level}>
-          {enemies.map(enemy => (
-            <Enemy
-              key={enemy.id}
-              enemy={enemy}
-              onDefeat={handleEnemyDefeat}
-            />
-          ))}
-          
-          {/* Show defeated enemy animations */}
-          {defeatedEnemies.map(enemy => (
-            <DefeatedEnemy
-              key={enemy.id}
-              enemy={enemy}
-            />
-          ))}
+        {/* BATTLEFIELD FRAME - Level-specific backgrounds */}
+        <div className="battlefield-frame">
+          <div className="battlefield-frame-border">
+            <div className={`battlefield level-${level}-bg`}>
+              {enemies.map(enemy => (
+                <Enemy
+                  key={enemy.id}
+                  enemy={enemy}
+                  onDefeat={handleEnemyDefeat}
+                />
+              ))}
+              
+              {defeatedEnemies.map(enemy => (
+                <DefeatedEnemy
+                  key={enemy.id}
+                  enemy={enemy}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         {mode === 'campaign' && (
