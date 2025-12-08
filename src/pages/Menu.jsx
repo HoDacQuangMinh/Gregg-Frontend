@@ -6,7 +6,11 @@ const Menu = ({ onStart, onPractice, onSettings, highScore, onLogout }) => {
     <div className="screen menu-screen">
       <div className="menu-container">
         <div className="menu-header">
-          <div className="skull-icon-large">☠️</div>
+          <img 
+            src="/images/ui/logo.png" 
+            alt="Game Logo" 
+            className="menu-logo"
+          />
           <h1 className="game-title">GREGG'S ABYSS</h1>
           <p className="game-subtitle">Defend Against the Shorthand Horde</p>
         </div>

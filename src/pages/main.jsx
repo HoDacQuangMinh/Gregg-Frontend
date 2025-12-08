@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles.css'; 
+import '../styles.css';
+
 // Gregg Words Data
 const GREGG_WORDS = [
   { word: 'the', shape: 'curve-right', imagePath: '/images/glyphs/the.png' },
@@ -42,6 +43,15 @@ const GameHUD = ({ level, score, health, mode, enemiesDefeated, enemiesRequired 
 
 // Enemy Component
 const Enemy = ({ enemy, onDefeat }) => {
+  // Determine which enemy image to use based on level
+  const getEnemyImage = () => {
+    if (enemy.level === 5) return '/images/enemies/enemy-5.png';
+    if (enemy.level === 4) return '/images/enemies/enemy-4.png';
+    if (enemy.level === 3) return '/images/enemies/enemy-3.png';
+    if (enemy.level === 2) return '/images/enemies/enemy-2.png';
+    return '/images/enemies/enemy-1.png';
+  };
+
   return (
     <div
       className="floating-enemy"
@@ -51,9 +61,31 @@ const Enemy = ({ enemy, onDefeat }) => {
       }}
       onClick={() => onDefeat(enemy)}
     >
-      <div className="enemy-skull">☠️</div>
+      <img 
+        src={getEnemyImage()} 
+        alt="Enemy" 
+        className="enemy-image"
+      />
       <div className="enemy-word-display">{enemy.word}</div>
       <div className="enemy-shape-hint">{enemy.shape}</div>
+    </div>
+  );
+};
+
+// Defeated Enemy Animation Component
+const DefeatedEnemy = ({ enemy }) => {
+  return (
+    <div
+      className="defeated-enemy"
+      style={{
+        left: `${enemy.x}%`,
+        top: `${enemy.y}%`,
+      }}
+    >
+      <div className="defeated-icon">💥</div>
+      <div className="defeated-text">SLAYED!</div>
+      {/* Replace with custom image: */}
+      {/* <img src="/images/enemy-defeated.png" alt="Slayed" className="defeated-image" /> */}
     </div>
   );
 };
@@ -68,6 +100,7 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
   const [currentPath, setCurrentPath] = useState([]);
   const [enemiesDefeated, setEnemiesDefeated] = useState(0);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [defeatedEnemies, setDefeatedEnemies] = useState([]); // Track defeated enemies for animation
   
   const canvasRef = useRef(null);
   const animationRef = useRef();
@@ -94,7 +127,8 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
       imagePath: randomWord.imagePath,
       x: 100,
       y: 20 + Math.random() * 60,
-      speed: config.speed
+      speed: config.speed,
+      level: level  // Add level to enemy for image selection
     };
 
     setEnemies(prev => [...prev, newEnemy]);
@@ -266,6 +300,15 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
 
   const handleDrawingSuccess = () => {
     setScore(s => s + 100 * level);
+    
+    // Add defeated enemy to animation list
+    setDefeatedEnemies(prev => [...prev, { ...activeEnemy, id: Date.now() }]);
+    
+    // Remove after animation (1 second)
+    setTimeout(() => {
+      setDefeatedEnemies(prev => prev.slice(1));
+    }, 1000);
+    
     setEnemies(prev => prev.filter(e => e.id !== activeEnemy.id));
     setEnemiesDefeated(prev => prev + 1);
     
@@ -311,6 +354,14 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
               key={enemy.id}
               enemy={enemy}
               onDefeat={handleEnemyDefeat}
+            />
+          ))}
+          
+          {/* Show defeated enemy animations */}
+          {defeatedEnemies.map(enemy => (
+            <DefeatedEnemy
+              key={enemy.id}
+              enemy={enemy}
             />
           ))}
         </div>

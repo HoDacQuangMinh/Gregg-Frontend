@@ -1,6 +1,6 @@
-/* ===================================
+/* 
    FONTS & BASE RESET
-=================================== */
+ */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
 * {
@@ -9,15 +9,15 @@
   box-sizing: border-box;
 }
 
-/* ===================================
+/* 
    ROOT VARIABLES - EASY CUSTOMIZATION
-=================================== */
+ */
 :root {
   /* Background Images - Replace with your custom images */
   --bg-login: url('/images/backgrounds/login-bg.jpg');
   --bg-menu: url('/images/backgrounds/menu-bg.jpg');
   --bg-game: url('/images/backgrounds/game-bg.jpg');
-  --bg-settings: url('/images/backgrounds/settings-bg.jpg');
+  --bg-settings: url('/images/backgrounds/game-bg.jpg');
   
   /* Enemy Sprites - Replace with your custom enemy images */
   --enemy-sprite-1: url('/images/enemies/enemy-1.png');
@@ -38,9 +38,9 @@
   --color-dark: #1a1a1a;
 }
 
-/* ===================================
+/* 
    BODY & APP ROOT
-=================================== */
+ */
 body {
   margin: 0;
   font-family: 'Cinzel', serif;
@@ -63,9 +63,9 @@ body {
   overflow: hidden;
 }
 
-/* ===================================
+/* 
    SCREEN LAYOUTS
-=================================== */
+ */
 .screen {
   width: 100vw;
   height: 100vh;
@@ -73,6 +73,506 @@ body {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.5s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sparkling Lava Particle Effect Overlay */
+.screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(4px 4px at 20% 30%, rgba(255, 100, 50, 0.9), transparent),
+    radial-gradient(5px 5px at 60% 70%, rgba(255, 150, 0, 0.8), transparent),
+    radial-gradient(3px 3px at 50% 50%, rgba(255, 200, 100, 0.9), transparent),
+    radial-gradient(4px 4px at 80% 10%, rgba(255, 80, 0, 0.7), transparent),
+    radial-gradient(3px 3px at 90% 60%, rgba(255, 150, 50, 0.8), transparent),
+    radial-gradient(5px 5px at 15% 80%, rgba(255, 100, 0, 0.9), transparent),
+    radial-gradient(3px 3px at 40% 20%, rgba(255, 180, 80, 0.7), transparent),
+    radial-gradient(4px 4px at 70% 40%, rgba(255, 120, 30, 0.8), transparent),
+    radial-gradient(3px 3px at 35% 90%, rgba(255, 140, 60, 0.8), transparent),
+    radial-gradient(4px 4px at 85% 25%, rgba(255, 110, 40, 0.9), transparent),
+    radial-gradient(5px 5px at 25% 60%, rgba(255, 130, 20, 0.8), transparent),
+    radial-gradient(3px 3px at 65% 15%, rgba(255, 170, 70, 0.7), transparent),
+    radial-gradient(4px 4px at 10% 45%, rgba(255, 90, 30, 0.8), transparent),
+    radial-gradient(3px 3px at 95% 75%, rgba(255, 160, 50, 0.9), transparent),
+    radial-gradient(5px 5px at 45% 35%, rgba(255, 120, 40, 0.8), transparent),
+    radial-gradient(4px 4px at 75% 85%, rgba(255, 100, 20, 0.7), transparent);
+  background-size: 
+    200% 200%,
+    180% 180%,
+    220% 220%,
+    190% 190%,
+    210% 210%,
+    170% 170%,
+    230% 230%,
+    160% 160%,
+    200% 200%,
+    185% 185%,
+    195% 195%,
+    215% 215%,
+    175% 175%,
+    205% 205%,
+    225% 225%,
+    165% 165%;
+  background-position: 
+    0% 0%,
+    100% 100%,
+    50% 50%,
+    80% 20%,
+    20% 80%,
+    60% 30%,
+    30% 70%,
+    90% 10%,
+    15% 55%,
+    85% 45%,
+    40% 15%,
+    70% 85%,
+    25% 25%,
+    95% 65%,
+    55% 40%,
+    10% 90%;
+  animation: lavaFloat 15s ease-in-out infinite;
+}
+
+/* Additional ember particles */
+.screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(3px 3px at 25% 45%, rgba(255, 220, 100, 1), transparent),
+    radial-gradient(4px 4px at 75% 65%, rgba(255, 180, 0, 0.9), transparent),
+    radial-gradient(5px 5px at 45% 85%, rgba(255, 100, 0, 0.8), transparent),
+    radial-gradient(3px 3px at 85% 35%, rgba(255, 200, 50, 0.9), transparent),
+    radial-gradient(4px 4px at 10% 55%, rgba(255, 150, 30, 0.9), transparent),
+    radial-gradient(3px 3px at 55% 15%, rgba(255, 190, 80, 0.8), transparent),
+    radial-gradient(5px 5px at 35% 75%, rgba(255, 140, 40, 0.9), transparent),
+    radial-gradient(4px 4px at 95% 85%, rgba(255, 110, 20, 0.8), transparent),
+    radial-gradient(3px 3px at 15% 25%, rgba(255, 170, 60, 0.9), transparent),
+    radial-gradient(4px 4px at 65% 50%, rgba(255, 130, 30, 0.8), transparent),
+    radial-gradient(5px 5px at 50% 95%, rgba(255, 120, 40, 0.9), transparent),
+    radial-gradient(3px 3px at 90% 20%, rgba(255, 200, 90, 1), transparent),
+    radial-gradient(4px 4px at 30% 40%, rgba(255, 160, 50, 0.9), transparent),
+    radial-gradient(3px 3px at 70% 10%, rgba(255, 140, 30, 0.8), transparent),
+    radial-gradient(5px 5px at 20% 70%, rgba(255, 110, 40, 0.9), transparent),
+    radial-gradient(4px 4px at 80% 55%, rgba(255, 190, 70, 0.8), transparent),
+    radial-gradient(3px 3px at 40% 30%, rgba(255, 150, 50, 0.9), transparent),
+    radial-gradient(4px 4px at 60% 80%, rgba(255, 100, 30, 0.8), transparent);
+  background-size:
+    250% 250%,
+    200% 200%,
+    180% 180%,
+    220% 220%,
+    190% 190%,
+    240% 240%,
+    210% 210%,
+    170% 170%,
+    230% 230%,
+    195% 195%,
+    215% 215%,
+    185% 185%,
+    205% 205%,
+    225% 225%,
+    175% 175%,
+    235% 235%,
+    165% 165%,
+    245% 245%;
+  background-position:
+    10% 90%,
+    90% 10%,
+    30% 30%,
+    70% 70%,
+    50% 10%,
+    20% 60%,
+    80% 40%,
+    40% 80%,
+    15% 35%,
+    85% 65%,
+    55% 20%,
+    25% 75%,
+    65% 45%,
+    35% 85%,
+    75% 25%,
+    45% 55%,
+    95% 15%,
+    5% 50%;
+  animation: emberFloat 20s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Dark Ash Particles - Rising from bottom */
+.screen .app-container::before,
+.game-container::before,
+.menu-container::before,
+.login-container::before,
+.level-select-container::before,
+.settings-container::before,
+.practice-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  background-image:
+    radial-gradient(2px 2px at 12% 95%, rgba(60, 40, 40, 0.6), transparent),
+    radial-gradient(3px 3px at 28% 90%, rgba(50, 35, 35, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 98%, rgba(70, 50, 50, 0.7), transparent),
+    radial-gradient(3px 3px at 62% 92%, rgba(55, 40, 40, 0.6), transparent),
+    radial-gradient(2px 2px at 78% 96%, rgba(65, 45, 45, 0.5), transparent),
+    radial-gradient(3px 3px at 88% 94%, rgba(50, 35, 35, 0.6), transparent),
+    radial-gradient(2px 2px at 8% 88%, rgba(60, 40, 40, 0.5), transparent),
+    radial-gradient(3px 3px at 22% 85%, rgba(55, 40, 40, 0.6), transparent),
+    radial-gradient(2px 2px at 38% 93%, rgba(65, 45, 45, 0.5), transparent),
+    radial-gradient(3px 3px at 52% 87%, rgba(50, 35, 35, 0.7), transparent),
+    radial-gradient(2px 2px at 68% 91%, rgba(70, 50, 50, 0.6), transparent),
+    radial-gradient(3px 3px at 82% 89%, rgba(55, 40, 40, 0.5), transparent),
+    radial-gradient(2px 2px at 95% 97%, rgba(60, 40, 40, 0.6), transparent),
+    radial-gradient(3px 3px at 18% 82%, rgba(65, 45, 45, 0.5), transparent),
+    radial-gradient(2px 2px at 35% 79%, rgba(50, 35, 35, 0.6), transparent),
+    radial-gradient(3px 3px at 55% 84%, rgba(70, 50, 50, 0.7), transparent),
+    radial-gradient(2px 2px at 72% 78%, rgba(55, 40, 40, 0.5), transparent),
+    radial-gradient(3px 3px at 92% 81%, rgba(60, 40, 40, 0.6), transparent),
+    radial-gradient(2px 2px at 5% 75%, rgba(65, 45, 45, 0.5), transparent),
+    radial-gradient(3px 3px at 48% 76%, rgba(50, 35, 35, 0.6), transparent);
+  background-size:
+    150% 150%,
+    140% 140%,
+    160% 160%,
+    135% 135%,
+    155% 155%,
+    145% 145%,
+    165% 165%,
+    138% 138%,
+    152% 152%,
+    148% 148%,
+    142% 142%,
+    158% 158%,
+    147% 147%,
+    153% 153%,
+    139% 139%,
+    162% 162%,
+    144% 144%,
+    156% 156%,
+    141% 141%,
+    149% 149%;
+  animation: ashRise 25s linear infinite;
+}
+
+/* Floating dust motes in the air */
+.screen .app-container::after,
+.game-container::after,
+.menu-container::after,
+.login-container::after,
+.level-select-container::after,
+.settings-container::after,
+.practice-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  background-image:
+    radial-gradient(1px 1px at 15% 30%, rgba(100, 80, 70, 0.4), transparent),
+    radial-gradient(2px 2px at 35% 55%, rgba(90, 70, 60, 0.3), transparent),
+    radial-gradient(1px 1px at 55% 20%, rgba(110, 90, 80, 0.5), transparent),
+    radial-gradient(2px 2px at 75% 45%, rgba(85, 65, 55, 0.4), transparent),
+    radial-gradient(1px 1px at 85% 70%, rgba(95, 75, 65, 0.3), transparent),
+    radial-gradient(2px 2px at 25% 65%, rgba(100, 80, 70, 0.4), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(90, 70, 60, 0.5), transparent),
+    radial-gradient(2px 2px at 65% 80%, rgba(85, 65, 55, 0.3), transparent),
+    radial-gradient(1px 1px at 10% 50%, rgba(110, 90, 80, 0.4), transparent),
+    radial-gradient(2px 2px at 50% 10%, rgba(95, 75, 65, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 25%, rgba(100, 80, 70, 0.5), transparent),
+    radial-gradient(2px 2px at 20% 85%, rgba(90, 70, 60, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 60%, rgba(85, 65, 55, 0.3), transparent),
+    radial-gradient(2px 2px at 90% 40%, rgba(110, 90, 80, 0.4), transparent),
+    radial-gradient(1px 1px at 40% 75%, rgba(95, 75, 65, 0.5), transparent),
+    radial-gradient(2px 2px at 70% 15%, rgba(100, 80, 70, 0.3), transparent);
+  background-size:
+    180% 180%,
+    200% 200%,
+    170% 170%,
+    190% 190%,
+    210% 210%,
+    175% 175%,
+    195% 195%,
+    185% 185%,
+    205% 205%,
+    165% 165%,
+    215% 215%,
+    178% 178%,
+    192% 192%,
+    188% 188%,
+    202% 202%,
+    172% 172%;
+  animation: dustFloat 30s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+@keyframes lavaFloat {
+  0%, 100% {
+    background-position: 
+      0% 0%,
+      100% 100%,
+      50% 50%,
+      80% 20%,
+      20% 80%,
+      60% 30%,
+      30% 70%,
+      90% 10%,
+      15% 55%,
+      85% 45%,
+      40% 15%,
+      70% 85%,
+      25% 25%,
+      95% 65%,
+      55% 40%,
+      10% 90%;
+    opacity: 0.7;
+  }
+  25% {
+    background-position:
+      20% 30%,
+      80% 70%,
+      60% 40%,
+      90% 10%,
+      10% 90%,
+      70% 20%,
+      40% 60%,
+      85% 25%,
+      25% 65%,
+      75% 35%,
+      50% 25%,
+      60% 75%,
+      35% 35%,
+      85% 55%,
+      65% 50%,
+      20% 80%;
+    opacity: 0.9;
+  }
+  50% {
+    background-position:
+      40% 60%,
+      60% 40%,
+      70% 30%,
+      30% 70%,
+      50% 50%,
+      80% 10%,
+      20% 80%,
+      75% 45%,
+      35% 75%,
+      65% 25%,
+      60% 35%,
+      50% 65%,
+      45% 45%,
+      75% 45%,
+      75% 60%,
+      30% 70%;
+    opacity: 1;
+  }
+  75% {
+    background-position:
+      60% 80%,
+      40% 20%,
+      80% 20%,
+      20% 80%,
+      70% 30%,
+      90% 70%,
+      10% 90%,
+      65% 65%,
+      45% 85%,
+      55% 15%,
+      70% 45%,
+      40% 55%,
+      55% 55%,
+      65% 35%,
+      85% 70%,
+      40% 60%;
+    opacity: 0.9;
+  }
+}
+
+@keyframes emberFloat {
+  0%, 100% {
+    background-position:
+      10% 90%,
+      90% 10%,
+      30% 30%,
+      70% 70%,
+      50% 10%,
+      20% 60%,
+      80% 40%,
+      40% 80%,
+      15% 35%,
+      85% 65%,
+      55% 20%,
+      25% 75%,
+      65% 45%,
+      35% 85%,
+      75% 25%,
+      45% 55%,
+      95% 15%,
+      5% 50%;
+    opacity: 0.6;
+  }
+  33% {
+    background-position:
+      30% 70%,
+      70% 30%,
+      50% 10%,
+      50% 90%,
+      80% 40%,
+      40% 80%,
+      60% 20%,
+      20% 60%,
+      25% 45%,
+      75% 55%,
+      65% 30%,
+      35% 65%,
+      75% 55%,
+      25% 75%,
+      85% 35%,
+      35% 45%,
+      85% 25%,
+      15% 60%;
+    opacity: 0.8;
+  }
+  66% {
+    background-position:
+      50% 50%,
+      50% 50%,
+      70% 30%,
+      30% 70%,
+      20% 80%,
+      80% 20%,
+      40% 60%,
+      60% 40%,
+      35% 55%,
+      65% 45%,
+      75% 40%,
+      45% 55%,
+      85% 65%,
+      15% 65%,
+      95% 45%,
+      25% 35%,
+      75% 35%,
+      25% 70%;
+    opacity: 1;
+  }
+}
+
+/* Dark ash rising from below */
+@keyframes ashRise {
+  0% {
+    background-position:
+      12% 100%,
+      28% 95%,
+      45% 103%,
+      62% 97%,
+      78% 101%,
+      88% 99%,
+      8% 93%,
+      22% 90%,
+      38% 98%,
+      52% 92%,
+      68% 96%,
+      82% 94%,
+      95% 102%,
+      18% 87%,
+      35% 84%,
+      55% 89%,
+      72% 83%,
+      92% 86%,
+      5% 80%,
+      48% 81%;
+    opacity: 0.7;
+  }
+  100% {
+    background-position:
+      12% -20%,
+      28% -25%,
+      45% -17%,
+      62% -23%,
+      78% -19%,
+      88% -21%,
+      8% -27%,
+      22% -30%,
+      38% -22%,
+      52% -28%,
+      68% -24%,
+      82% -26%,
+      95% -18%,
+      18% -33%,
+      35% -36%,
+      55% -31%,
+      72% -37%,
+      92% -34%,
+      5% -40%,
+      48% -39%;
+    opacity: 0;
+  }
+}
+
+/* Floating dust motes */
+@keyframes dustFloat {
+  0%, 100% {
+    background-position:
+      15% 30%,
+      35% 55%,
+      55% 20%,
+      75% 45%,
+      85% 70%,
+      25% 65%,
+      45% 35%,
+      65% 80%,
+      10% 50%,
+      50% 10%,
+      80% 25%,
+      20% 85%,
+      60% 60%,
+      90% 40%,
+      40% 75%,
+      70% 15%;
+    opacity: 0.5;
+  }
+  50% {
+    background-position:
+      20% 35%,
+      40% 60%,
+      60% 25%,
+      80% 50%,
+      90% 75%,
+      30% 70%,
+      50% 40%,
+      70% 85%,
+      15% 55%,
+      55% 15%,
+      85% 30%,
+      25% 90%,
+      65% 65%,
+      95% 45%,
+      45% 80%,
+      75% 20%;
+    opacity: 0.8;
+  }
 }
 
 @keyframes fadeIn {
@@ -80,15 +580,21 @@ body {
   to { opacity: 1; }
 }
 
-/* ===================================
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 
    LOGIN SCREEN
    Replace var(--bg-login) with your custom background
-=================================== */
+ */
 .login-screen {
-  /* background-image: var(--bg-login); */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-login);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login-container {
@@ -97,6 +603,8 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+  position: relative;
+  z-index: 2; /* Above particle effects */
 }
 
 .login-box {
@@ -108,6 +616,15 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
   text-align: center;
   min-width: 400px;
+}
+
+.login-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 0 20px var(--color-primary));
+  animation: float 3s ease-in-out infinite;
 }
 
 .skull-icon-login {
@@ -176,14 +693,15 @@ body {
   box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
 }
 
-/* ===================================
+/* 
    MAIN MENU SCREEN
-=================================== */
+ */
 .menu-screen {
-  /* background-image: var(--bg-menu); */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-menu);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .menu-container {
@@ -195,11 +713,22 @@ body {
   border: 3px solid var(--color-secondary);
   border-radius: 15px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  position: relative;
+  z-index: 2; /* Above particle effects */
 }
 
 .menu-header {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.menu-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  filter: drop-shadow(0 0 30px var(--color-primary));
+  animation: float 3s ease-in-out infinite;
 }
 
 .skull-icon-large {
@@ -319,14 +848,15 @@ body {
   text-shadow: 0 0 10px var(--color-gold);
 }
 
-/* ===================================
+/* 
    LEVEL SELECT SCREEN
-=================================== */
+ */
 .level-select-screen {
-  /* background-image: var(--bg-menu); */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-menu);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   overflow-y: auto; /* Enable scrolling */
 }
 
@@ -617,14 +1147,15 @@ body {
   }
 }
 
-/* ===================================
+/* 
    GAME SCREEN
-=================================== */
+ */
 .game-screen {
-  /* background-image: var(--bg-game); */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-game);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .game-container {
@@ -633,11 +1164,12 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 2; /* Above particle effects */
 }
 
-/* ===================================
+/* 
    GAME HUD
-=================================== */
+ */
 .game-hud {
   position: relative;
   width: 100%;
@@ -724,23 +1256,25 @@ body {
   min-width: 50px;
 }
 
-/* ===================================
+/* 
    BATTLEFIELD
-=================================== */
+ */
 .battlefield {
   flex: 1;
   position: relative;
   overflow: hidden;
-  max-height: 50vh;
+  min-height: 350px; /* Increased from 250px */
+  max-height: 45vh; /* Increased to give more space */
+  margin-bottom: 1rem; /* Add spacing from drawing area */
 }
 
-/* ===================================
+/* 
    DRAWING BOX CONTAINER
-=================================== */
+ */
 .drawing-box-container {
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto 1rem;
   display: flex;
   flex-direction: column;
@@ -814,8 +1348,8 @@ body {
 
 .battlefield-canvas {
   width: 100%;
-  aspect-ratio: 3 / 2;
-  max-height: 300px;
+  aspect-ratio: 16 / 9;
+  max-height: 220px; /* Slightly reduced to compensate for larger battlefield */
   background: rgba(20, 10, 10, 0.6);
   border: 3px solid #4a2020;
   border-radius: 12px;
@@ -853,10 +1387,10 @@ body {
   color: white;
 }
 
-/* ===================================
+/* 
    ENEMY STYLING
    Add custom enemy sprites here
-=================================== */
+ */
 .floating-enemy {
   position: absolute;
   display: flex;
@@ -883,6 +1417,22 @@ body {
   /* height: 80px; */
 }
 
+/* Enemy Image Styling */
+.enemy-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 50, 50, 0.8));
+  animation: float 2s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s;
+}
+
+.floating-enemy:hover .enemy-image {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 25px rgba(255, 50, 50, 1));
+}
+
 .enemy-word-display {
   background: rgba(127, 29, 29, 0.9);
   border: 2px solid var(--color-primary);
@@ -906,9 +1456,97 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-/* ===================================
+/* 
+   DEFEATED ENEMY ANIMATION
+ */
+.defeated-enemy {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 100;
+  animation: defeatFadeOut 1s ease-out forwards;
+}
+
+.defeated-icon {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px rgba(255, 200, 0, 0.8));
+  animation: explode 0.5s ease-out;
+}
+
+.defeated-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 165, 0, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-top: 0.5rem;
+  animation: textPop 0.5s ease-out;
+  letter-spacing: 2px;
+}
+
+/* If using custom image instead of emoji */
+.defeated-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 200, 0, 0.8));
+  animation: explode 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes defeatFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes textPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 
    GAME FOOTER
-=================================== */
+ */
 .game-footer {
   padding: 1.5rem;
   text-align: center;
@@ -933,9 +1571,9 @@ body {
   border-color: var(--color-primary);
 }
 
-/* ===================================
+/* 
    DRAWING MODAL
-=================================== */
+ */
 .drawing-modal-overlay {
   position: fixed;
   top: 0;
@@ -1034,9 +1672,9 @@ body {
   margin-top: 1rem;
 }
 
-/* ===================================
+/* 
    GAME OVER OVERLAY
-=================================== */
+ */
 .game-over-overlay {
   position: fixed;
   top: 0;
@@ -1113,9 +1751,9 @@ body {
   background: rgba(80, 40, 40, 0.9);
 }
 
-/* ===================================
+/* 
    LEVEL COMPLETE OVERLAY
-=================================== */
+ */
 .level-complete-overlay {
   position: fixed;
   top: 0;
@@ -1227,14 +1865,15 @@ body {
   color: white;
 }
 
-/* ===================================
+/* 
    SETTINGS SCREEN
-=================================== */
+ */
 .settings-screen {
-  /* background-image: var(--bg-settings); */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-settings);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .settings-container {
@@ -1390,13 +2029,15 @@ body {
   color: white;
 }
 
-/* ===================================
+/* 
    PRACTICE SCREEN
-=================================== */
+ */
 .practice-screen {
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  background-image: var(--bg-game);
+  background-color: #1a1a1a;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .practice-container {
@@ -1595,9 +2236,9 @@ body {
   color: white;
 }
 
-/* ===================================
+/* 
    LEVEL SELECT ADDITIONS
-=================================== */
+ */
 .level-description {
   font-size: 0.7rem;
   color: #9ca3af;
@@ -1683,9 +2324,9 @@ body {
   }
 }
 
-/* ===================================
+/* 
    ANIMATIONS
-=================================== */
+ */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -1695,9 +2336,9 @@ body {
   }
 }
 
-/* ===================================
+/* 
    RESPONSIVE DESIGN
-=================================== */
+ */
 @media (max-width: 1024px) {
   .login-box, .menu-container, .settings-container {
     min-width: auto;
@@ -1728,10 +2369,12 @@ body {
   
   .drawing-box-container {
     width: 95%;
+    max-width: 450px;
   }
   
   .battlefield {
-    max-height: 40vh;
+    max-height: 38vh; /* Increased for laptop */
+    min-height: 280px;
   }
 
   /* Practice Mode Responsive */
@@ -1944,10 +2587,10 @@ body {
   }
 }
 
-/* ===================================
+/* 
    AUDIO CONTROLS (Optional)
    Uncomment if you want visible audio controls
-=================================== */
+ */
 /*
 .audio-controls {
   position: fixed;

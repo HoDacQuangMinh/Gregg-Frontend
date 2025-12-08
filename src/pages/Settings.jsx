@@ -100,7 +100,7 @@ const Settings = ({ onBack }) => {
               <p><strong>Gregg's Abyss</strong></p>
               <p>Version 1.0.0</p>
               <p>A dark fantasy Gregg shorthand learning game</p>
-              <p className="credits">Developed with ❤️</p>
+              <p className="credits">Developed by Group 4</p>
             </div>
           </div>
 
