@@ -41,15 +41,40 @@ const GameHUD = ({ level, score, health, mode, enemiesDefeated, enemiesRequired 
   </div>
 );
 
-// Enemy Component
+// Enemy Component with Sprite Animation
 const Enemy = ({ enemy, onDefeat }) => {
-  // Determine which enemy image to use based on level
-  const getEnemyImage = () => {
-    if (enemy.level === 5) return '/images/enemies/enemy-5.png';
-    if (enemy.level === 4) return '/images/enemies/enemy-4.png';
-    if (enemy.level === 3) return '/images/enemies/enemy-3.png';
-    if (enemy.level === 2) return '/images/enemies/enemy-2.png';
-    return '/images/enemies/enemy-1.png';
+  const [currentFrame, setCurrentFrame] = useState(0);
+  
+  // Animation frames for each level
+  const enemyAnimations = {
+    1: { frames: 24, basePath: '/images/enemies/level1/0_Reaper_Man_Walking' }, 
+    2: { frames: 24, basePath: '/images/enemies/level2/1_Reaper_Man_Walking_015' },
+    3: { frames: 24, basePath: '/images/enemies/level3/0_Reaper_Man_Walking' }, // Level 3 uses 0_Reaper_Man_Walking
+    4: { frames: 24, basePath: '/images/enemies/level4/0_Reaper_Man_Walking' },
+    5: { frames: 24, basePath: '/images/enemies/level5/0_Reaper_Man_Walking' }
+  };
+
+  const animation = enemyAnimations[enemy.level] || enemyAnimations[1];
+
+  // Cycle through animation frames
+  useEffect(() => {
+    const frameInterval = setInterval(() => {
+      setCurrentFrame(prev => (prev + 1) % animation.frames);
+    }, 80); // Change frame every 80ms for smooth 12.5 FPS animation
+
+    return () => clearInterval(frameInterval);
+  }, [animation.frames]);
+
+  const getEnemySprite = () => {
+    // Level 2: 1_Reaper_Man_Walking_015 (1).png, (2).png, etc.
+    if (enemy.level === 2) {
+      const frameNumber = currentFrame + 1;
+      return `${animation.basePath} (${frameNumber}).png`;
+    }
+    
+    // Level 1, 3, 4, 5: 0_Reaper_Man_Walking_000.png, _001.png, etc.
+    const frameNumber = String(currentFrame).padStart(3, '0');
+    return `${animation.basePath}_${frameNumber}.png`;
   };
 
   return (
@@ -62,7 +87,7 @@ const Enemy = ({ enemy, onDefeat }) => {
       onClick={() => onDefeat(enemy)}
     >
       <img 
-        src={getEnemyImage()} 
+        src={getEnemySprite()} 
         alt="Enemy" 
         className="enemy-image"
       />
@@ -348,7 +373,7 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
           enemiesRequired={config.enemiesRequired}
         />
 
-        <div className="battlefield">
+        <div className="battlefield" data-level={level}>
           {enemies.map(enemy => (
             <Enemy
               key={enemy.id}

@@ -1,6 +1,6 @@
-/* 
+/* ===================================
    FONTS & BASE RESET
- */
+=================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
 * {
@@ -9,9 +9,9 @@
   box-sizing: border-box;
 }
 
-/* 
+/* ===================================
    ROOT VARIABLES - EASY CUSTOMIZATION
- */
+=================================== */
 :root {
   /* Background Images - Replace with your custom images */
   --bg-login: url('/images/backgrounds/login-bg.jpg');
@@ -38,9 +38,9 @@
   --color-dark: #1a1a1a;
 }
 
-/* 
+/* ===================================
    BODY & APP ROOT
- */
+=================================== */
 body {
   margin: 0;
   font-family: 'Cinzel', serif;
@@ -63,9 +63,9 @@ body {
   overflow: hidden;
 }
 
-/* 
+/* ===================================
    SCREEN LAYOUTS
- */
+=================================== */
 .screen {
   width: 100vw;
   height: 100vh;
@@ -585,10 +585,10 @@ body {
   to { opacity: 1; }
 }
 
-/* 
+/* ===================================
    LOGIN SCREEN
    Replace var(--bg-login) with your custom background
- */
+=================================== */
 .login-screen {
   background-image: var(--bg-login);
   background-color: #1a1a1a;
@@ -693,9 +693,9 @@ body {
   box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
 }
 
-/* 
+/* ===================================
    MAIN MENU SCREEN
- */
+=================================== */
 .menu-screen {
   background-image: var(--bg-menu);
   background-color: #1a1a1a;
@@ -848,9 +848,9 @@ body {
   text-shadow: 0 0 10px var(--color-gold);
 }
 
-/* 
+/* ===================================
    LEVEL SELECT SCREEN
- */
+=================================== */
 .level-select-screen {
   background-image: var(--bg-menu);
   background-color: #1a1a1a;
@@ -1147,9 +1147,9 @@ body {
   }
 }
 
-/* 
+/* ===================================
    GAME SCREEN
- */
+=================================== */
 .game-screen {
   background-image: var(--bg-game);
   background-color: #1a1a1a;
@@ -1167,9 +1167,9 @@ body {
   z-index: 2; /* Above particle effects */
 }
 
-/* 
+/* ===================================
    GAME HUD
- */
+=================================== */
 .game-hud {
   position: relative;
   width: 100%;
@@ -1256,9 +1256,9 @@ body {
   min-width: 50px;
 }
 
-/* 
+/* ===================================
    BATTLEFIELD
- */
+=================================== */
 .battlefield {
   flex: 1;
   position: relative;
@@ -1268,9 +1268,9 @@ body {
   margin-bottom: 1rem; /* Add spacing from drawing area */
 }
 
-/* 
+/* ===================================
    DRAWING BOX CONTAINER
- */
+=================================== */
 .drawing-box-container {
   position: relative;
   width: 90%;
@@ -1387,10 +1387,10 @@ body {
   color: white;
 }
 
-/* 
+/* ===================================
    ENEMY STYLING
    Add custom enemy sprites here
- */
+=================================== */
 .floating-enemy {
   position: absolute;
   display: flex;
@@ -1399,10 +1399,12 @@ body {
   cursor: pointer;
   transition: transform 0.1s;
   animation: enemyFloat 2s ease-in-out infinite;
+  z-index: 2; /* Above battlefield effects */
+  transform: translateY(-50%); /* Center vertically on the line */
 }
 
 .floating-enemy:hover {
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .enemy-skull {
@@ -1426,10 +1428,11 @@ body {
   animation: float 2s ease-in-out infinite;
   margin-bottom: 0.5rem;
   transition: all 0.3s;
+  transform: scaleX(-1) !important; /* Flip horizontally - face LEFT */
 }
 
 .floating-enemy:hover .enemy-image {
-  transform: scale(1.15);
+  transform: scaleX(-1) scale(1.15) !important; /* Keep flipped when hovering */
   filter: drop-shadow(0 0 25px rgba(255, 50, 50, 1));
 }
 
@@ -1456,9 +1459,9 @@ body {
   50% { transform: translateY(-10px); }
 }
 
-/* 
+/* ===================================
    DEFEATED ENEMY ANIMATION
- */
+=================================== */
 .defeated-enemy {
   position: absolute;
   display: flex;
@@ -1544,9 +1547,9 @@ body {
   }
 }
 
-/* 
+/* ===================================
    GAME FOOTER
- */
+=================================== */
 .game-footer {
   padding: 1.5rem;
   text-align: center;
@@ -1571,9 +1574,9 @@ body {
   border-color: var(--color-primary);
 }
 
-/* 
+/* ===================================
    DRAWING MODAL
- */
+=================================== */
 .drawing-modal-overlay {
   position: fixed;
   top: 0;
@@ -1672,9 +1675,9 @@ body {
   margin-top: 1rem;
 }
 
-/* 
+/* ===================================
    GAME OVER OVERLAY
- */
+=================================== */
 .game-over-overlay {
   position: fixed;
   top: 0;
@@ -1751,9 +1754,9 @@ body {
   background: rgba(80, 40, 40, 0.9);
 }
 
-/* 
+/* ===================================
    LEVEL COMPLETE OVERLAY
- */
+=================================== */
 .level-complete-overlay {
   position: fixed;
   top: 0;
@@ -1865,9 +1868,9 @@ body {
   color: white;
 }
 
-/* 
+/* ===================================
    SETTINGS SCREEN
- */
+=================================== */
 .settings-screen {
   background-image: var(--bg-settings);
   background-color: #1a1a1a;
@@ -2029,9 +2032,9 @@ body {
   color: white;
 }
 
-/* 
+/* ===================================
    PRACTICE SCREEN
- */
+=================================== */
 .practice-screen {
   background-image: var(--bg-game);
   background-color: #1a1a1a;
@@ -2236,9 +2239,9 @@ body {
   color: white;
 }
 
-/* 
+/* ===================================
    LEVEL SELECT ADDITIONS
- */
+=================================== */
 .level-description {
   font-size: 0.7rem;
   color: #9ca3af;
@@ -2324,9 +2327,9 @@ body {
   }
 }
 
-/* 
+/* ===================================
    ANIMATIONS
- */
+=================================== */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -2336,9 +2339,9 @@ body {
   }
 }
 
-/* 
+/* ===================================
    RESPONSIVE DESIGN
- */
+=================================== */
 @media (max-width: 1024px) {
   .login-box, .menu-container, .settings-container {
     min-width: auto;
@@ -2587,10 +2590,10 @@ body {
   }
 }
 
-/* 
+/* ===================================
    AUDIO CONTROLS (Optional)
    Uncomment if you want visible audio controls
- */
+=================================== */
 /*
 .audio-controls {
   position: fixed;
