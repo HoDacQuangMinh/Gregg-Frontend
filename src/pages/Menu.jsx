@@ -19,7 +19,7 @@ const Menu = ({ onStart, onPractice, onSettings, highScore, onLogout }) => {
           <button className="btn-menu-primary" onClick={onStart}>
             <span className="btn-icon">⚔️</span>
             <div className="btn-text-content">
-              <span className="btn-title">CAMPAIGN</span>
+              <span className="btn-title">ARCADE MODE</span>
               <span className="btn-desc">5 Levels of Darkness</span>
             </div>
           </button>
@@ -27,7 +27,7 @@ const Menu = ({ onStart, onPractice, onSettings, highScore, onLogout }) => {
           <button className="btn-menu-primary" onClick={onPractice}>
             <span className="btn-icon">📖</span>
             <div className="btn-text-content">
-              <span className="btn-title">PRACTICE</span>
+              <span className="btn-title">PRACTICE MODE</span>
               <span className="btn-desc">Endless Training</span>
             </div>
           </button>
