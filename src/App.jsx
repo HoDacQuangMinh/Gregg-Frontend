@@ -3,6 +3,8 @@ import './styles.css';
 
 // Import all page components
 import Login from './pages/Login';
+import SignUp from './pages/Signup.jsx';
+import ForgotPassword from './pages/Forgotpassword';
 import Menu from './pages/Menu';
 import Practice from './pages/Practice';
 import Settings from './pages/Settings';
@@ -38,6 +40,13 @@ export default function App() {
 
   // Navigation Handlers
   const handleLogin = (name) => {
+    setUsername(name);
+    setScreen('menu');
+  };
+
+  const handleSignUp = (name, email, password) => {
+    // In a real app, this would create an account
+    console.log('Sign up:', { name, email, password });
     setUsername(name);
     setScreen('menu');
   };
@@ -84,7 +93,24 @@ export default function App() {
   return (
     <div className="app-root">
       {screen === 'login' && (
-        <Login onLogin={handleLogin} />
+        <Login 
+          onLogin={handleLogin}
+          onSignUp={() => setScreen('signup')}
+          onForgotPassword={() => setScreen('forgot-password')}
+        />
+      )}
+
+      {screen === 'signup' && (
+        <SignUp 
+          onSignUp={handleSignUp}
+          onBackToLogin={() => setScreen('login')}
+        />
+      )}
+
+      {screen === 'forgot-password' && (
+        <ForgotPassword 
+          onBackToLogin={() => setScreen('login')}
+        />
       )}
       
       {screen === 'menu' && (

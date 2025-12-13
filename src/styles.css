@@ -762,35 +762,117 @@ body {
 .menu-buttons {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.8rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
 
 .btn-menu-primary {
   width: 100%;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, var(--color-secondary), #991b1b);
-  /* background-image: var(--btn-primary-bg); */
-  background-size: cover;
-  border: 2px solid var(--color-primary);
-  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  background: 
+    linear-gradient(135deg, rgba(80, 20, 20, 0.9) 0%, rgba(120, 30, 30, 0.8) 50%, rgba(80, 20, 20, 0.9) 100%);
+  background-color: #4a1515;
+  border: none;
+  border-radius: 4px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   cursor: pointer;
   transition: all 0.3s;
   color: white;
   font-family: 'Cinzel', serif;
+  position: relative;
+  overflow: visible;
+  
+  /* Outer metallic frame effect */
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    0 0 0 3px #2a2a2a,
+    0 0 0 5px #4a4a4a,
+    0 0 0 6px #1a1a1a,
+    0 5px 15px rgba(0, 0, 0, 0.5);
+  
+  /* Scratched/textured look */
+  background-image: 
+    linear-gradient(135deg, rgba(80, 20, 20, 0.9) 0%, rgba(120, 30, 30, 0.8) 50%, rgba(80, 20, 20, 0.9) 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+}
+
+/* Decorative skull/emblem at top center */
+.btn-menu-primary::before {
+  content: '☠';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: #c0c0c0;
+  text-shadow: 
+    0 0 10px rgba(255, 50, 50, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+}
+
+/* Side decorative elements */
+.btn-menu-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  right: -8px;
+  height: 60%;
+  transform: translateY(-50%);
+  border-left: 3px solid #5a5a5a;
+  border-right: 3px solid #5a5a5a;
+  pointer-events: none;
+  
+  /* Decorative side flourishes */
+  background: 
+    linear-gradient(to bottom, transparent 0%, transparent 40%, #3a3a3a 40%, #3a3a3a 60%, transparent 60%, transparent 100%);
+  background-size: 3px 100%;
+  background-position: left center, right center;
+  background-repeat: no-repeat;
 }
 
 .btn-menu-primary:hover {
+  background: 
+    linear-gradient(135deg, rgba(100, 25, 25, 0.95) 0%, rgba(150, 40, 40, 0.9) 50%, rgba(100, 25, 25, 0.95) 100%);
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.5);
-  border-color: var(--color-gold);
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    0 0 0 3px #3a3a3a,
+    0 0 0 5px #5a5a5a,
+    0 0 0 6px #2a2a2a,
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(150, 50, 50, 0.3);
+}
+
+.btn-menu-primary:hover::before {
+  color: #ff6666;
+  text-shadow: 
+    0 0 15px rgba(255, 100, 100, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.btn-menu-primary:active {
+  transform: translateY(-1px);
 }
 
 .btn-icon {
   font-size: 2rem;
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  z-index: 2;
 }
 
 .btn-text-content {
@@ -798,25 +880,30 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.3rem;
+  z-index: 2;
 }
 
 .btn-title {
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .btn-desc {
   font-size: 0.8rem;
   color: #d0a080;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* Secondary Menu Button - Same style but slightly different color */
 .btn-menu-secondary {
   width: 100%;
-  padding: 1rem;
-  background: rgba(60, 30, 30, 0.8);
-  border: 2px solid #8a5a40;
-  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  background: 
+    linear-gradient(135deg, rgba(40, 30, 30, 0.9) 0%, rgba(60, 45, 45, 0.8) 50%, rgba(40, 30, 30, 0.9) 100%);
+  border: none;
+  border-radius: 4px;
   color: var(--color-text);
   font-family: 'Cinzel', serif;
   font-size: 1rem;
@@ -824,11 +911,27 @@ body {
   transition: all 0.3s;
   text-transform: uppercase;
   letter-spacing: 1px;
+  position: relative;
+  
+  box-shadow: 
+    inset 0 0 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 3px rgba(255, 255, 255, 0.05),
+    0 0 0 2px #2a2a2a,
+    0 0 0 4px #3a3a3a,
+    0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .btn-menu-secondary:hover {
-  background: rgba(80, 40, 40, 0.9);
-  border-color: var(--color-primary);
+  background: 
+    linear-gradient(135deg, rgba(60, 40, 40, 0.95) 0%, rgba(80, 55, 55, 0.9) 50%, rgba(60, 40, 40, 0.95) 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.1),
+    0 0 0 2px #3a3a3a,
+    0 0 0 4px #4a4a4a,
+    0 5px 15px rgba(0, 0, 0, 0.5);
+  color: white;
 }
 
 .high-score-display {
@@ -2547,8 +2650,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.3rem;
   transition: all 0.3s;
+  min-height: 120px;
 }
 
 .level-detail-card:hover {
@@ -2558,27 +2663,36 @@ body {
 }
 
 .level-detail-number {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: var(--color-gold);
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  line-height: 1;
+  margin-bottom: 0.2rem;
 }
 
 .level-detail-info {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .level-detail-name {
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
   margin-bottom: 0.3rem;
 }
 
 .level-detail-stat {
   color: #9ca3af;
-  font-size: 0.75rem;
-  margin: 0.2rem 0;
+  font-size: 0.7rem;
+  display: block;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
@@ -2681,7 +2795,12 @@ body {
   }
 
   .btn-menu-primary {
-    padding: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
+  
+  .btn-menu-primary::before {
+    font-size: 1.2rem;
+    top: -10px;
   }
 
   .btn-title {
@@ -2755,7 +2874,17 @@ body {
   }
 
   .btn-menu-primary {
-    padding: 0.8rem;
+    padding: 1rem 1.2rem;
+  }
+  
+  .btn-menu-primary::before {
+    font-size: 1rem;
+    top: -8px;
+  }
+  
+  .btn-menu-primary::after {
+    left: -5px;
+    right: -5px;
   }
 
   .btn-title {
@@ -2882,3 +3011,320 @@ body {
   border-color: var(--color-primary);
 }
 */
+/* ===================================
+   AUTHENTICATION PAGES - SIGNUP & FORGOT PASSWORD
+=================================== */
+
+/* Sign Up Box */
+.signup-box {
+  min-width: 420px;
+}
+
+.signup-box .login-input {
+  margin-bottom: 1rem;
+}
+
+.btn-signup {
+  background: linear-gradient(135deg, #065f46, #10b981);
+  border-color: #10b981;
+}
+
+.btn-signup:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+}
+
+/* Forgot Password Box */
+.forgot-password-box {
+  min-width: 420px;
+}
+
+.forgot-instructions {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Success Message Box */
+.success-message-box {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  color: #10b981;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.success-text {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.success-text strong {
+  color: white;
+}
+
+.success-note {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(220, 38, 38, 0.2);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  color: #fca5a5;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Auth Links Section */
+.auth-links {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-text-link {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.btn-text-link:hover {
+  color: var(--color-gold);
+}
+
+.btn-text-link span {
+  color: var(--color-gold);
+  font-weight: bold;
+}
+
+.auth-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #4b5563, transparent);
+}
+
+.btn-secondary-auth {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(60, 30, 30, 0.6);
+  border: 2px solid #8a5a40;
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-secondary-auth:hover {
+  background: rgba(80, 40, 40, 0.8);
+  border-color: var(--color-gold);
+  color: white;
+}
+
+/* ===================================
+   SEARCH BAR - PRACTICE MODE
+=================================== */
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem 2.5rem 0.8rem 2.8rem;
+  background: rgba(30, 20, 15, 0.8);
+  border: 2px solid #5a3a2a;
+  border-radius: 8px;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(80, 40, 40, 0.8);
+  border: none;
+  color: #9ca3af;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.search-clear:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* ===================================
+   IMPROVED BACK TO MAIN MENU BUTTON
+=================================== */
+.btn-back-main {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, rgba(80, 40, 20, 0.9), rgba(60, 30, 15, 0.9));
+  border: 2px solid var(--color-gold);
+  border-radius: 8px;
+  color: var(--color-gold);
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-back-main:hover {
+  background: linear-gradient(135deg, rgba(100, 50, 25, 0.95), rgba(80, 40, 20, 0.95));
+  border-color: #ffd700;
+  color: #ffd700;
+  transform: translateX(-5px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-back-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s;
+}
+
+.btn-back-main:hover .btn-back-icon {
+  transform: translateX(-3px);
+}
+
+.btn-back-text {
+  letter-spacing: 2px;
+}
+
+/* Hide old back button if still present */
+.btn-back {
+  display: none;
+}
+
+/* ===================================
+   RESPONSIVE - AUTH & SEARCH
+=================================== */
+@media (max-width: 768px) {
+  .signup-box,
+  .forgot-password-box {
+    min-width: auto;
+    width: 95%;
+  }
+  
+  .btn-back-main {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .search-input {
+    padding: 0.7rem 2.2rem 0.7rem 2.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-box,
+  .forgot-password-box {
+    padding: 1.5rem;
+  }
+  
+  .btn-back-main {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+  
+  .btn-back-icon {
+    font-size: 1.1rem;
+  }
+  
+  .auth-links {
+    gap: 0.8rem;
+  }
+  
+  .btn-text-link {
+    font-size: 0.8rem;
+  }
+}

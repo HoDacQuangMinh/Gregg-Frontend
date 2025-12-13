@@ -17,7 +17,11 @@ const Settings = ({ onBack }) => {
   return (
     <div className="screen settings-screen">
       <div className="settings-container">
-        <button className="btn-back" onClick={onBack}>← BACK</button>
+        {/* Clear Back Button */}
+        <button className="btn-back-main" onClick={onBack}>
+          <span className="btn-back-icon">←</span>
+          <span className="btn-back-text">MAIN MENU</span>
+        </button>
         
         <h2 className="settings-title">SETTINGS</h2>
         
@@ -98,7 +102,7 @@ const Settings = ({ onBack }) => {
             <h3 className="section-title">ℹ️ ABOUT</h3>
             <div className="about-info">
               <p><strong>Gregg's Abyss</strong></p>
-              <p>Version 1.0.0</p>
+              <p>Version Beta</p>
               <p>A dark fantasy Gregg shorthand learning game</p>
               <p className="credits">Developed by Group 4</p>
             </div>
@@ -115,4 +119,4 @@ const Settings = ({ onBack }) => {
   );
 };
 
-export default Settings
+export default Settings;
