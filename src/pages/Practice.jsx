@@ -10,7 +10,11 @@ const GREGG_WORDS = [
   { word: 'are', shape: 'circle', imagePath: '/images/glyphs/are.png' },
   { word: 'that', shape: 'curve-left', imagePath: '/images/glyphs/that.png' },
   { word: 'with', shape: 'diagonal', imagePath: '/images/glyphs/with.png' },
-  { word: 'have', shape: 'hook-down', imagePath: '/images/glyphs/have.png' }
+  { word: 'have', shape: 'hook-down', imagePath: '/images/glyphs/have.png' },
+  { word: 'this', shape: 'curve-right', imagePath: '/images/glyphs/this.png' },
+  { word: 'will', shape: 'wave', imagePath: '/images/glyphs/will.png' },
+  { word: 'your', shape: 'loop', imagePath: '/images/glyphs/your.png' },
+  { word: 'from', shape: 'hook', imagePath: '/images/glyphs/from.png' },
 ];
 
 const Practice = ({ onBack }) => {
@@ -20,8 +24,15 @@ const Practice = ({ onBack }) => {
   const [score, setScore] = useState(0);
   const [attempts, setAttempts] = useState(0);
   const [feedback, setFeedback] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   
   const canvasRef = useRef(null);
+
+  // Filter words based on search query
+  const filteredWords = GREGG_WORDS.filter(word => 
+    word.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    word.shape.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -135,7 +146,11 @@ const Practice = ({ onBack }) => {
   return (
     <div className="screen practice-screen">
       <div className="practice-container">
-        <button className="btn-back" onClick={onBack}>← BACK TO MENU</button>
+        {/* Clear Back Button */}
+        <button className="btn-back-main" onClick={onBack}>
+          <span className="btn-back-icon">←</span>
+          <span className="btn-back-text">MAIN MENU</span>
+        </button>
         
         <h2 className="practice-title">PRACTICE MODE</h2>
         
@@ -153,17 +168,44 @@ const Practice = ({ onBack }) => {
         <div className="practice-content">
           <div className="word-selection">
             <h3 className="section-title">Select a Word to Practice:</h3>
-            <div className="word-grid">
-              {GREGG_WORDS.map((word, index) => (
-                <button
-                  key={index}
-                  className={`word-button ${selectedWord?.word === word.word ? 'active' : ''}`}
-                  onClick={() => handleSelectWord(word)}
+            
+            {/* Search Bar */}
+            <div className="search-container">
+              <span className="search-icon">🔍</span>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search words or shapes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <button 
+                  className="search-clear"
+                  onClick={() => setSearchQuery('')}
                 >
-                  <span className="word-text">{word.word}</span>
-                  <span className="word-shape">{word.shape}</span>
+                  ✕
                 </button>
-              ))}
+              )}
+            </div>
+            
+            <div className="word-grid">
+              {filteredWords.length > 0 ? (
+                filteredWords.map((word, index) => (
+                  <button
+                    key={index}
+                    className={`word-button ${selectedWord?.word === word.word ? 'active' : ''}`}
+                    onClick={() => handleSelectWord(word)}
+                  >
+                    <span className="word-text">{word.word}</span>
+                    <span className="word-shape">{word.shape}</span>
+                  </button>
+                ))
+              ) : (
+                <div className="no-results">
+                  <p>No words found matching "{searchQuery}"</p>
+                </div>
+              )}
             </div>
           </div>
 
