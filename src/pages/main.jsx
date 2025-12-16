@@ -130,11 +130,11 @@ const MainGame = ({ level, setLevel, onGameOver, onExit, mode }) => {
 
   // Level configurations
   const levelConfig = {
-    1: { speed: 0.3, spawnRate: 4000, enemiesRequired: 5 },
-    2: { speed: 0.5, spawnRate: 3500, enemiesRequired: 8 },
-    3: { speed: 0.8, spawnRate: 3000, enemiesRequired: 10 },
-    4: { speed: 1.2, spawnRate: 2500, enemiesRequired: 12 },
-    5: { speed: 1.8, spawnRate: 2000, enemiesRequired: 15 }
+    1: { speed: 0.1, spawnRate: 4500, enemiesRequired: 5 },
+    2: { speed: 0.2, spawnRate: 4000, enemiesRequired: 8 },
+    3: { speed: 0.3, spawnRate: 3500, enemiesRequired: 10 },
+    4: { speed: 0.5, spawnRate: 3000, enemiesRequired: 12 },
+    5: { speed: 1.0, spawnRate: 2500, enemiesRequired: 15 }
   };
 
   const config = levelConfig[level] || levelConfig[1];
