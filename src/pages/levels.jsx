@@ -16,7 +16,7 @@ const Levels = ({ onSelectLevel, onBack }) => {
         {/* Return to Main Menu Button */}
         <button className="btn-back-main" onClick={onBack}>
           <span className="btn-back-icon">←</span>
-          <span className="btn-back-text">MAIN MENU</span>
+          <span className="btn-back-text">RETURN</span>
         </button>
 
         <h2 className="level-select-title">SELECT YOUR DOOM</h2>

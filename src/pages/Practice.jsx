@@ -149,7 +149,7 @@ const Practice = ({ onBack }) => {
         {/* Clear Back Button */}
         <button className="btn-back-main" onClick={onBack}>
           <span className="btn-back-icon">←</span>
-          <span className="btn-back-text">MAIN MENU</span>
+          <span className="btn-back-text">RETURN</span>
         </button>
         
         <h2 className="practice-title">PRACTICE MODE</h2>
