@@ -10,7 +10,7 @@
 }
 
 /* 
-   ROOT VARIABLES - EASY CUSTOMIZATION
+   ROOT VARIABLES - FANTASY THEME
  */
 :root {
   /* Background Images - Replace with your custom images */
@@ -37,12 +37,13 @@
   --btn-primary-bg: url('/images/ui/button-primary.png');
   --btn-secondary-bg: url('/images/ui/button-secondary.png');
   
-  /* Colors */
-  --color-primary: #dc2626;
-  --color-secondary: #7f1d1d;
-  --color-gold: #d4af37;
-  --color-text: #e0c0a0;
-  --color-dark: #1a1a1a;
+  /* Colors - Fantasy Theme */
+  --color-primary: #5b8dd9;
+  --color-secondary: #2a4a7a;
+  --color-gold: #f0d890;
+  --color-text: #e8e4d9;
+  --color-dark: #1a1e2e;
+  --color-accent: #7ec8e3;
 }
 
 /* 
@@ -55,13 +56,13 @@ body {
   color: var(--color-text);
   overflow: hidden;
   
-  /* Default gradient background (will be overridden by screen-specific backgrounds) */
-  background: linear-gradient(to bottom, #1a1a1a, #4a0e0e, #000000);
+  /* Fantasy gradient background - deep blue/purple night sky */
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b, #0d1b2a);
   
-  /* Add texture overlay */
+  /* Add mystical texture overlay */
   background-image: 
-    radial-gradient(circle at 50% 40%, rgba(60, 20, 10, 0.4), rgba(10, 5, 5, 0.8) 80%),
-    radial-gradient(ellipse at 50% 90%, rgba(200, 80, 40, 0.3), transparent 60%);
+    radial-gradient(circle at 50% 40%, rgba(30, 60, 90, 0.4), rgba(10, 20, 40, 0.8) 80%),
+    radial-gradient(ellipse at 50% 90%, rgba(100, 140, 200, 0.2), transparent 60%);
 }
 
 .app-root {
@@ -84,7 +85,7 @@ body {
   overflow: hidden;
 }
 
-/* Sparkling Lava Particle Effect Overlay */
+/* Sparkling Firefly Particle Effect Overlay */
 .screen::before {
   content: '';
   position: absolute;
@@ -95,22 +96,22 @@ body {
   pointer-events: none;
   z-index: 1;
   background-image: 
-    radial-gradient(4px 4px at 20% 30%, rgba(255, 100, 50, 0.9), transparent),
-    radial-gradient(5px 5px at 60% 70%, rgba(255, 150, 0, 0.8), transparent),
-    radial-gradient(3px 3px at 50% 50%, rgba(255, 200, 100, 0.9), transparent),
-    radial-gradient(4px 4px at 80% 10%, rgba(255, 80, 0, 0.7), transparent),
-    radial-gradient(3px 3px at 90% 60%, rgba(255, 150, 50, 0.8), transparent),
-    radial-gradient(5px 5px at 15% 80%, rgba(255, 100, 0, 0.9), transparent),
-    radial-gradient(3px 3px at 40% 20%, rgba(255, 180, 80, 0.7), transparent),
-    radial-gradient(4px 4px at 70% 40%, rgba(255, 120, 30, 0.8), transparent),
-    radial-gradient(3px 3px at 35% 90%, rgba(255, 140, 60, 0.8), transparent),
-    radial-gradient(4px 4px at 85% 25%, rgba(255, 110, 40, 0.9), transparent),
-    radial-gradient(5px 5px at 25% 60%, rgba(255, 130, 20, 0.8), transparent),
-    radial-gradient(3px 3px at 65% 15%, rgba(255, 170, 70, 0.7), transparent),
-    radial-gradient(4px 4px at 10% 45%, rgba(255, 90, 30, 0.8), transparent),
-    radial-gradient(3px 3px at 95% 75%, rgba(255, 160, 50, 0.9), transparent),
-    radial-gradient(5px 5px at 45% 35%, rgba(255, 120, 40, 0.8), transparent),
-    radial-gradient(4px 4px at 75% 85%, rgba(255, 100, 20, 0.7), transparent);
+    radial-gradient(4px 4px at 20% 30%, rgba(255, 255, 240, 0.9), transparent),
+    radial-gradient(5px 5px at 60% 70%, rgba(200, 230, 255, 0.8), transparent),
+    radial-gradient(3px 3px at 50% 50%, rgba(255, 255, 200, 0.9), transparent),
+    radial-gradient(4px 4px at 80% 10%, rgba(180, 220, 255, 0.7), transparent),
+    radial-gradient(3px 3px at 90% 60%, rgba(255, 250, 220, 0.8), transparent),
+    radial-gradient(5px 5px at 15% 80%, rgba(220, 240, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 40% 20%, rgba(255, 255, 230, 0.7), transparent),
+    radial-gradient(4px 4px at 70% 40%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(3px 3px at 35% 90%, rgba(255, 250, 200, 0.8), transparent),
+    radial-gradient(4px 4px at 85% 25%, rgba(230, 245, 255, 0.9), transparent),
+    radial-gradient(5px 5px at 25% 60%, rgba(255, 255, 220, 0.8), transparent),
+    radial-gradient(3px 3px at 65% 15%, rgba(200, 230, 255, 0.7), transparent),
+    radial-gradient(4px 4px at 10% 45%, rgba(255, 250, 240, 0.8), transparent),
+    radial-gradient(3px 3px at 95% 75%, rgba(220, 240, 255, 0.9), transparent),
+    radial-gradient(5px 5px at 45% 35%, rgba(255, 255, 210, 0.8), transparent),
+    radial-gradient(4px 4px at 75% 85%, rgba(200, 220, 255, 0.7), transparent);
   background-size: 
     200% 200%,
     180% 180%,
@@ -145,10 +146,10 @@ body {
     95% 65%,
     55% 40%,
     10% 90%;
-  animation: lavaFloat 15s ease-in-out infinite;
+  animation: fireflyFloat 15s ease-in-out infinite;
 }
 
-/* Additional ember particles */
+/* Additional sparkle particles */
 .screen::after {
   content: '';
   position: absolute;
@@ -159,24 +160,24 @@ body {
   pointer-events: none;
   z-index: 1;
   background-image:
-    radial-gradient(3px 3px at 25% 45%, rgba(255, 220, 100, 1), transparent),
-    radial-gradient(4px 4px at 75% 65%, rgba(255, 180, 0, 0.9), transparent),
-    radial-gradient(5px 5px at 45% 85%, rgba(255, 100, 0, 0.8), transparent),
-    radial-gradient(3px 3px at 85% 35%, rgba(255, 200, 50, 0.9), transparent),
-    radial-gradient(4px 4px at 10% 55%, rgba(255, 150, 30, 0.9), transparent),
-    radial-gradient(3px 3px at 55% 15%, rgba(255, 190, 80, 0.8), transparent),
-    radial-gradient(5px 5px at 35% 75%, rgba(255, 140, 40, 0.9), transparent),
-    radial-gradient(4px 4px at 95% 85%, rgba(255, 110, 20, 0.8), transparent),
-    radial-gradient(3px 3px at 15% 25%, rgba(255, 170, 60, 0.9), transparent),
-    radial-gradient(4px 4px at 65% 50%, rgba(255, 130, 30, 0.8), transparent),
-    radial-gradient(5px 5px at 50% 95%, rgba(255, 120, 40, 0.9), transparent),
-    radial-gradient(3px 3px at 90% 20%, rgba(255, 200, 90, 1), transparent),
-    radial-gradient(4px 4px at 30% 40%, rgba(255, 160, 50, 0.9), transparent),
-    radial-gradient(3px 3px at 70% 10%, rgba(255, 140, 30, 0.8), transparent),
-    radial-gradient(5px 5px at 20% 70%, rgba(255, 110, 40, 0.9), transparent),
-    radial-gradient(4px 4px at 80% 55%, rgba(255, 190, 70, 0.8), transparent),
-    radial-gradient(3px 3px at 40% 30%, rgba(255, 150, 50, 0.9), transparent),
-    radial-gradient(4px 4px at 60% 80%, rgba(255, 100, 30, 0.8), transparent);
+    radial-gradient(3px 3px at 25% 45%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(4px 4px at 75% 65%, rgba(200, 240, 255, 0.9), transparent),
+    radial-gradient(5px 5px at 45% 85%, rgba(255, 255, 220, 0.8), transparent),
+    radial-gradient(3px 3px at 85% 35%, rgba(230, 250, 255, 0.9), transparent),
+    radial-gradient(4px 4px at 10% 55%, rgba(255, 255, 240, 0.9), transparent),
+    radial-gradient(3px 3px at 55% 15%, rgba(200, 230, 255, 0.8), transparent),
+    radial-gradient(5px 5px at 35% 75%, rgba(255, 250, 220, 0.9), transparent),
+    radial-gradient(4px 4px at 95% 85%, rgba(220, 245, 255, 0.8), transparent),
+    radial-gradient(3px 3px at 15% 25%, rgba(255, 255, 230, 0.9), transparent),
+    radial-gradient(4px 4px at 65% 50%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(5px 5px at 50% 95%, rgba(255, 250, 200, 0.9), transparent),
+    radial-gradient(3px 3px at 90% 20%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(4px 4px at 30% 40%, rgba(220, 240, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 70% 10%, rgba(255, 255, 220, 0.8), transparent),
+    radial-gradient(5px 5px at 20% 70%, rgba(200, 230, 255, 0.9), transparent),
+    radial-gradient(4px 4px at 80% 55%, rgba(255, 250, 240, 0.8), transparent),
+    radial-gradient(3px 3px at 40% 30%, rgba(230, 245, 255, 0.9), transparent),
+    radial-gradient(4px 4px at 60% 80%, rgba(255, 255, 210, 0.8), transparent);
   background-size:
     250% 250%,
     200% 200%,
@@ -215,11 +216,11 @@ body {
     45% 55%,
     95% 15%,
     5% 50%;
-  animation: emberFloat 20s ease-in-out infinite;
+  animation: sparkleFloat 20s ease-in-out infinite;
   animation-delay: -5s;
 }
 
-/* Dark Ash Particles - Rising from bottom */
+/* Magical Dust Motes - Rising gently */
 .screen .app-container::before,
 .game-container::before,
 .menu-container::before,
@@ -236,26 +237,26 @@ body {
   pointer-events: none;
   z-index: 3;
   background-image:
-    radial-gradient(2px 2px at 12% 95%, rgba(60, 40, 40, 0.6), transparent),
-    radial-gradient(3px 3px at 28% 90%, rgba(50, 35, 35, 0.5), transparent),
-    radial-gradient(2px 2px at 45% 98%, rgba(70, 50, 50, 0.7), transparent),
-    radial-gradient(3px 3px at 62% 92%, rgba(55, 40, 40, 0.6), transparent),
-    radial-gradient(2px 2px at 78% 96%, rgba(65, 45, 45, 0.5), transparent),
-    radial-gradient(3px 3px at 88% 94%, rgba(50, 35, 35, 0.6), transparent),
-    radial-gradient(2px 2px at 8% 88%, rgba(60, 40, 40, 0.5), transparent),
-    radial-gradient(3px 3px at 22% 85%, rgba(55, 40, 40, 0.6), transparent),
-    radial-gradient(2px 2px at 38% 93%, rgba(65, 45, 45, 0.5), transparent),
-    radial-gradient(3px 3px at 52% 87%, rgba(50, 35, 35, 0.7), transparent),
-    radial-gradient(2px 2px at 68% 91%, rgba(70, 50, 50, 0.6), transparent),
-    radial-gradient(3px 3px at 82% 89%, rgba(55, 40, 40, 0.5), transparent),
-    radial-gradient(2px 2px at 95% 97%, rgba(60, 40, 40, 0.6), transparent),
-    radial-gradient(3px 3px at 18% 82%, rgba(65, 45, 45, 0.5), transparent),
-    radial-gradient(2px 2px at 35% 79%, rgba(50, 35, 35, 0.6), transparent),
-    radial-gradient(3px 3px at 55% 84%, rgba(70, 50, 50, 0.7), transparent),
-    radial-gradient(2px 2px at 72% 78%, rgba(55, 40, 40, 0.5), transparent),
-    radial-gradient(3px 3px at 92% 81%, rgba(60, 40, 40, 0.6), transparent),
-    radial-gradient(2px 2px at 5% 75%, rgba(65, 45, 45, 0.5), transparent),
-    radial-gradient(3px 3px at 48% 76%, rgba(50, 35, 35, 0.6), transparent);
+    radial-gradient(2px 2px at 12% 95%, rgba(200, 220, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 28% 90%, rgba(255, 255, 240, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 98%, rgba(180, 210, 255, 0.7), transparent),
+    radial-gradient(3px 3px at 62% 92%, rgba(255, 255, 220, 0.6), transparent),
+    radial-gradient(2px 2px at 78% 96%, rgba(200, 230, 255, 0.5), transparent),
+    radial-gradient(3px 3px at 88% 94%, rgba(255, 250, 230, 0.6), transparent),
+    radial-gradient(2px 2px at 8% 88%, rgba(180, 220, 255, 0.5), transparent),
+    radial-gradient(3px 3px at 22% 85%, rgba(255, 255, 240, 0.6), transparent),
+    radial-gradient(2px 2px at 38% 93%, rgba(200, 240, 255, 0.5), transparent),
+    radial-gradient(3px 3px at 52% 87%, rgba(255, 255, 220, 0.7), transparent),
+    radial-gradient(2px 2px at 68% 91%, rgba(180, 210, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 82% 89%, rgba(255, 250, 240, 0.5), transparent),
+    radial-gradient(2px 2px at 95% 97%, rgba(200, 230, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 18% 82%, rgba(255, 255, 230, 0.5), transparent),
+    radial-gradient(2px 2px at 35% 79%, rgba(180, 220, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 55% 84%, rgba(255, 255, 240, 0.7), transparent),
+    radial-gradient(2px 2px at 72% 78%, rgba(200, 240, 255, 0.5), transparent),
+    radial-gradient(3px 3px at 92% 81%, rgba(255, 250, 220, 0.6), transparent),
+    radial-gradient(2px 2px at 5% 75%, rgba(180, 210, 255, 0.5), transparent),
+    radial-gradient(3px 3px at 48% 76%, rgba(255, 255, 240, 0.6), transparent);
   background-size:
     150% 150%,
     140% 140%,
@@ -277,10 +278,10 @@ body {
     156% 156%,
     141% 141%,
     149% 149%;
-  animation: ashRise 25s linear infinite;
+  animation: magicDustRise 25s linear infinite;
 }
 
-/* Floating dust motes in the air */
+/* Floating fairy lights in the air */
 .screen .app-container::after,
 .game-container::after,
 .menu-container::after,
@@ -297,22 +298,22 @@ body {
   pointer-events: none;
   z-index: 3;
   background-image:
-    radial-gradient(1px 1px at 15% 30%, rgba(100, 80, 70, 0.4), transparent),
-    radial-gradient(2px 2px at 35% 55%, rgba(90, 70, 60, 0.3), transparent),
-    radial-gradient(1px 1px at 55% 20%, rgba(110, 90, 80, 0.5), transparent),
-    radial-gradient(2px 2px at 75% 45%, rgba(85, 65, 55, 0.4), transparent),
-    radial-gradient(1px 1px at 85% 70%, rgba(95, 75, 65, 0.3), transparent),
-    radial-gradient(2px 2px at 25% 65%, rgba(100, 80, 70, 0.4), transparent),
-    radial-gradient(1px 1px at 45% 35%, rgba(90, 70, 60, 0.5), transparent),
-    radial-gradient(2px 2px at 65% 80%, rgba(85, 65, 55, 0.3), transparent),
-    radial-gradient(1px 1px at 10% 50%, rgba(110, 90, 80, 0.4), transparent),
-    radial-gradient(2px 2px at 50% 10%, rgba(95, 75, 65, 0.3), transparent),
-    radial-gradient(1px 1px at 80% 25%, rgba(100, 80, 70, 0.5), transparent),
-    radial-gradient(2px 2px at 20% 85%, rgba(90, 70, 60, 0.4), transparent),
-    radial-gradient(1px 1px at 60% 60%, rgba(85, 65, 55, 0.3), transparent),
-    radial-gradient(2px 2px at 90% 40%, rgba(110, 90, 80, 0.4), transparent),
-    radial-gradient(1px 1px at 40% 75%, rgba(95, 75, 65, 0.5), transparent),
-    radial-gradient(2px 2px at 70% 15%, rgba(100, 80, 70, 0.3), transparent);
+    radial-gradient(1px 1px at 15% 30%, rgba(200, 230, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 35% 55%, rgba(255, 255, 240, 0.3), transparent),
+    radial-gradient(1px 1px at 55% 20%, rgba(180, 220, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 75% 45%, rgba(255, 250, 230, 0.4), transparent),
+    radial-gradient(1px 1px at 85% 70%, rgba(200, 240, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 25% 65%, rgba(255, 255, 220, 0.4), transparent),
+    radial-gradient(1px 1px at 45% 35%, rgba(180, 210, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 65% 80%, rgba(255, 255, 240, 0.3), transparent),
+    radial-gradient(1px 1px at 10% 50%, rgba(200, 230, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 50% 10%, rgba(255, 250, 220, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 25%, rgba(180, 220, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 20% 85%, rgba(255, 255, 240, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 60%, rgba(200, 240, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 90% 40%, rgba(255, 255, 230, 0.4), transparent),
+    radial-gradient(1px 1px at 40% 75%, rgba(180, 210, 255, 0.5), transparent),
+    radial-gradient(2px 2px at 70% 15%, rgba(255, 250, 240, 0.3), transparent);
   background-size:
     180% 180%,
     200% 200%,
@@ -330,11 +331,11 @@ body {
     188% 188%,
     202% 202%,
     172% 172%;
-  animation: dustFloat 30s ease-in-out infinite;
+  animation: fairyFloat 30s ease-in-out infinite;
   animation-delay: -10s;
 }
 
-@keyframes lavaFloat {
+@keyframes fireflyFloat {
   0%, 100% {
     background-position: 
       0% 0%,
@@ -353,7 +354,7 @@ body {
       95% 65%,
       55% 40%,
       10% 90%;
-    opacity: 0.7;
+    opacity: 0.6;
   }
   25% {
     background-position:
@@ -413,11 +414,11 @@ body {
       65% 35%,
       85% 70%,
       40% 60%;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 }
 
-@keyframes emberFloat {
+@keyframes sparkleFloat {
   0%, 100% {
     background-position:
       10% 90%,
@@ -438,7 +439,7 @@ body {
       45% 55%,
       95% 15%,
       5% 50%;
-    opacity: 0.6;
+    opacity: 0.5;
   }
   33% {
     background-position:
@@ -486,8 +487,8 @@ body {
   }
 }
 
-/* Dark ash rising from below */
-@keyframes ashRise {
+/* Magical dust rising gently */
+@keyframes magicDustRise {
   0% {
     background-position:
       12% 100%,
@@ -510,7 +511,7 @@ body {
       92% 86%,
       5% 80%,
       48% 81%;
-    opacity: 0.7;
+    opacity: 0.6;
   }
   100% {
     background-position:
@@ -538,8 +539,8 @@ body {
   }
 }
 
-/* Floating dust motes */
-@keyframes dustFloat {
+/* Floating fairy lights */
+@keyframes fairyFloat {
   0%, 100% {
     background-position:
       15% 30%,
@@ -558,7 +559,7 @@ body {
       90% 40%,
       40% 75%,
       70% 15%;
-    opacity: 0.5;
+    opacity: 0.4;
   }
   50% {
     background-position:
@@ -578,7 +579,7 @@ body {
       95% 45%,
       45% 80%,
       75% 20%;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 }
 
@@ -596,12 +597,97 @@ body {
    LOGIN SCREEN
    Replace var(--bg-login) with your custom background
  */
-.login-screen {
-  background-image: var(--bg-login);
-  background-color: #1a1a1a;
+.login-screen,
+.menu-screen {
+  background-image: var(--bg-menu);
+  background-color: #0d1b2a;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Extra fireflies layer for login and menu */
+.login-screen::before,
+.menu-screen::before {
+  background-image: 
+    radial-gradient(4px 4px at 5% 10%, rgba(255, 255, 240, 1), transparent),
+    radial-gradient(5px 5px at 15% 25%, rgba(200, 230, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 25% 15%, rgba(255, 255, 200, 1), transparent),
+    radial-gradient(6px 6px at 35% 30%, rgba(180, 220, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 45% 8%, rgba(255, 250, 220, 0.9), transparent),
+    radial-gradient(5px 5px at 55% 22%, rgba(220, 240, 255, 1), transparent),
+    radial-gradient(3px 3px at 65% 35%, rgba(255, 255, 230, 0.8), transparent),
+    radial-gradient(6px 6px at 75% 12%, rgba(200, 220, 255, 0.9), transparent),
+    radial-gradient(4px 4px at 85% 28%, rgba(255, 250, 200, 1), transparent),
+    radial-gradient(5px 5px at 95% 18%, rgba(230, 245, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 10% 45%, rgba(255, 255, 220, 1), transparent),
+    radial-gradient(6px 6px at 20% 55%, rgba(200, 230, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 30% 48%, rgba(255, 250, 240, 0.9), transparent),
+    radial-gradient(5px 5px at 40% 60%, rgba(220, 240, 255, 1), transparent),
+    radial-gradient(3px 3px at 50% 42%, rgba(255, 255, 210, 0.9), transparent),
+    radial-gradient(6px 6px at 60% 52%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 70% 65%, rgba(255, 255, 230, 1), transparent),
+    radial-gradient(5px 5px at 80% 50%, rgba(180, 210, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 90% 58%, rgba(255, 250, 220, 1), transparent),
+    radial-gradient(6px 6px at 8% 72%, rgba(230, 245, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 18% 85%, rgba(255, 255, 240, 0.9), transparent),
+    radial-gradient(5px 5px at 28% 78%, rgba(200, 230, 255, 1), transparent),
+    radial-gradient(3px 3px at 38% 88%, rgba(255, 250, 200, 0.9), transparent),
+    radial-gradient(6px 6px at 48% 75%, rgba(220, 240, 255, 0.8), transparent),
+    radial-gradient(4px 4px at 58% 92%, rgba(255, 255, 220, 1), transparent),
+    radial-gradient(5px 5px at 68% 82%, rgba(200, 220, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 78% 95%, rgba(255, 255, 230, 0.8), transparent),
+    radial-gradient(6px 6px at 88% 78%, rgba(180, 210, 255, 1), transparent),
+    radial-gradient(4px 4px at 98% 88%, rgba(255, 250, 240, 0.9), transparent),
+    radial-gradient(5px 5px at 12% 38%, rgba(230, 245, 255, 1), transparent);
+  background-size: 
+    180% 180%, 160% 160%, 200% 200%, 170% 170%, 190% 190%,
+    175% 175%, 185% 185%, 165% 165%, 195% 195%, 155% 155%,
+    182% 182%, 168% 168%, 192% 192%, 172% 172%, 188% 188%,
+    178% 178%, 162% 162%, 198% 198%, 158% 158%, 186% 186%,
+    176% 176%, 166% 166%, 196% 196%, 156% 156%, 184% 184%,
+    174% 174%, 164% 164%, 194% 194%, 154% 154%, 180% 180%;
+  animation: fireflyFloat 12s ease-in-out infinite;
+  opacity: 1;
+}
+
+.login-screen::after,
+.menu-screen::after {
+  background-image:
+    radial-gradient(3px 3px at 8% 15%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(4px 4px at 18% 35%, rgba(200, 240, 255, 0.95), transparent),
+    radial-gradient(5px 5px at 28% 20%, rgba(255, 255, 220, 0.9), transparent),
+    radial-gradient(3px 3px at 38% 45%, rgba(230, 250, 255, 1), transparent),
+    radial-gradient(4px 4px at 48% 12%, rgba(255, 255, 240, 0.95), transparent),
+    radial-gradient(5px 5px at 58% 38%, rgba(200, 230, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 68% 25%, rgba(255, 250, 220, 1), transparent),
+    radial-gradient(4px 4px at 78% 50%, rgba(220, 245, 255, 0.95), transparent),
+    radial-gradient(5px 5px at 88% 30%, rgba(255, 255, 230, 0.9), transparent),
+    radial-gradient(3px 3px at 98% 42%, rgba(200, 220, 255, 1), transparent),
+    radial-gradient(4px 4px at 5% 58%, rgba(255, 250, 200, 0.95), transparent),
+    radial-gradient(5px 5px at 15% 72%, rgba(220, 240, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 25% 65%, rgba(255, 255, 240, 1), transparent),
+    radial-gradient(4px 4px at 35% 80%, rgba(200, 230, 255, 0.95), transparent),
+    radial-gradient(5px 5px at 45% 55%, rgba(255, 250, 230, 0.9), transparent),
+    radial-gradient(3px 3px at 55% 75%, rgba(230, 245, 255, 1), transparent),
+    radial-gradient(4px 4px at 65% 62%, rgba(255, 255, 220, 0.95), transparent),
+    radial-gradient(5px 5px at 75% 85%, rgba(200, 220, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 85% 68%, rgba(255, 250, 240, 1), transparent),
+    radial-gradient(4px 4px at 95% 78%, rgba(180, 210, 255, 0.95), transparent),
+    radial-gradient(5px 5px at 3% 90%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 22% 95%, rgba(220, 240, 255, 1), transparent),
+    radial-gradient(4px 4px at 42% 88%, rgba(255, 255, 230, 0.95), transparent),
+    radial-gradient(5px 5px at 62% 92%, rgba(200, 230, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 82% 98%, rgba(255, 250, 220, 1), transparent);
+  background-size:
+    220% 220%, 190% 190%, 240% 240%, 200% 200%, 210% 210%,
+    185% 185%, 225% 225%, 195% 195%, 235% 235%, 175% 175%,
+    215% 215%, 188% 188%, 230% 230%, 198% 198%, 205% 205%,
+    182% 182%, 222% 222%, 192% 192%, 238% 238%, 178% 178%,
+    212% 212%, 186% 186%, 228% 228%, 196% 196%, 208% 208%;
+  animation: sparkleFloat 15s ease-in-out infinite;
+  animation-delay: -3s;
+  opacity: 1;
 }
 
 .login-container {
@@ -614,13 +700,86 @@ body {
   z-index: 2; /* Above particle effects */
 }
 
+/* Extra sparkle layer for login container */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(3px 3px at 20% 40%, rgba(200, 230, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 30% 15%, rgba(255, 255, 220, 0.9), transparent),
+    radial-gradient(3px 3px at 40% 35%, rgba(180, 220, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 50% 25%, rgba(255, 250, 240, 0.9), transparent),
+    radial-gradient(3px 3px at 60% 45%, rgba(220, 240, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 230, 0.9), transparent),
+    radial-gradient(3px 3px at 80% 50%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 90% 20%, rgba(255, 250, 220, 0.9), transparent),
+    radial-gradient(3px 3px at 15% 60%, rgba(230, 245, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 25% 75%, rgba(255, 255, 240, 0.9), transparent),
+    radial-gradient(3px 3px at 35% 55%, rgba(200, 230, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 45% 70%, rgba(255, 250, 200, 0.9), transparent),
+    radial-gradient(3px 3px at 55% 80%, rgba(220, 240, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 65% 65%, rgba(255, 255, 220, 0.9), transparent),
+    radial-gradient(3px 3px at 75% 85%, rgba(200, 220, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 85% 70%, rgba(255, 255, 230, 0.9), transparent),
+    radial-gradient(3px 3px at 95% 90%, rgba(180, 210, 255, 0.8), transparent);
+  background-size:
+    300% 300%, 280% 280%, 320% 320%, 260% 260%, 340% 340%,
+    250% 250%, 310% 310%, 270% 270%, 330% 330%, 240% 240%,
+    290% 290%, 275% 275%, 315% 315%, 255% 255%, 335% 335%,
+    245% 245%, 305% 305%, 265% 265%;
+  animation: gentleSparkle 20s ease-in-out infinite;
+}
+
+/* Twinkling animation for gentle sparkles */
+@keyframes gentleSparkle {
+  0%, 100% {
+    opacity: 0.6;
+    background-position:
+      10% 20%, 20% 40%, 30% 15%, 40% 35%, 50% 25%,
+      60% 45%, 70% 30%, 80% 50%, 90% 20%, 15% 60%,
+      25% 75%, 35% 55%, 45% 70%, 55% 80%, 65% 65%,
+      75% 85%, 85% 70%, 95% 90%;
+  }
+  25% {
+    opacity: 0.9;
+    background-position:
+      15% 25%, 25% 35%, 35% 20%, 45% 40%, 55% 30%,
+      65% 50%, 75% 25%, 85% 45%, 95% 25%, 20% 55%,
+      30% 80%, 40% 60%, 50% 75%, 60% 85%, 70% 60%,
+      80% 80%, 90% 65%, 100% 85%;
+  }
+  50% {
+    opacity: 1;
+    background-position:
+      20% 30%, 30% 30%, 40% 25%, 50% 45%, 60% 35%,
+      70% 55%, 80% 20%, 90% 40%, 100% 30%, 25% 50%,
+      35% 85%, 45% 65%, 55% 80%, 65% 90%, 75% 55%,
+      85% 75%, 95% 60%, 5% 80%;
+  }
+  75% {
+    opacity: 0.8;
+    background-position:
+      25% 35%, 35% 25%, 45% 30%, 55% 50%, 65% 40%,
+      75% 60%, 85% 15%, 95% 35%, 5% 35%, 30% 45%,
+      40% 90%, 50% 70%, 60% 85%, 70% 95%, 80% 50%,
+      90% 70%, 100% 55%, 10% 75%;
+  }
+}
+
 .login-box {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(15, 25, 45, 0.85);
   backdrop-filter: blur(10px);
   padding: 3rem;
   border-radius: 12px;
   border: 2px solid var(--color-secondary);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(91, 141, 217, 0.2);
   text-align: center;
   min-width: 400px;
 }
@@ -630,26 +789,26 @@ body {
   height: 120px;
   object-fit: contain;
   margin: 0 auto 1rem;
-  filter: drop-shadow(0 0 20px var(--color-primary));
+  filter: drop-shadow(0 0 20px rgba(91, 141, 217, 0.6));
   animation: float 3s ease-in-out infinite;
 }
 
 .skull-icon-login {
   font-size: 4rem;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 20px var(--color-primary));
+  filter: drop-shadow(0 0 20px rgba(91, 141, 217, 0.6));
   animation: float 3s ease-in-out infinite;
 }
 
 .login-title {
   font-size: 3rem;
-  color: var(--color-primary);
+  color: var(--color-gold);
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+  text-shadow: 0 0 20px rgba(240, 216, 144, 0.6);
 }
 
 .login-subtitle {
-  color: #9ca3af;
+  color: #a0b0c0;
   margin-bottom: 2rem;
   font-size: 0.9rem;
 }
@@ -657,7 +816,7 @@ body {
 .login-input {
   width: 100%;
   padding: 1rem;
-  background: #1f2937;
+  background: rgba(20, 35, 60, 0.8);
   border: 2px solid var(--color-secondary);
   border-radius: 8px;
   color: white;
@@ -670,18 +829,17 @@ body {
 .login-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 0 15px rgba(91, 141, 217, 0.4);
 }
 
 .login-input::placeholder {
-  color: #6b7280;
+  color: #6080a0;
 }
 
 .btn-login {
   width: 100%;
   padding: 1rem;
   background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-  /* background-image: var(--btn-primary-bg); */
   background-size: cover;
   border: 2px solid var(--color-primary);
   border-radius: 8px;
@@ -697,31 +855,91 @@ body {
 
 .btn-login:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+  box-shadow: 0 0 30px rgba(91, 141, 217, 0.5);
 }
 
 /* 
    MAIN MENU SCREEN
  */
-.menu-screen {
-  background-image: var(--bg-menu);
-  background-color: #1a1a1a;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+/* Menu screen styles are combined with login-screen above */
 
 .menu-container {
   max-width: 600px;
   width: 90%;
   padding: 2rem;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(15, 25, 45, 0.85);
   backdrop-filter: blur(10px);
   border: 3px solid var(--color-secondary);
   border-radius: 15px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(91, 141, 217, 0.15);
   position: relative;
   z-index: 2; /* Above particle effects */
+}
+
+/* Extra sparkle layer around menu */
+.menu-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(3px 3px at 5% 10%, rgba(255, 255, 255, 0.95), transparent),
+    radial-gradient(4px 4px at 12% 30%, rgba(200, 230, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 8% 55%, rgba(255, 255, 220, 0.9), transparent),
+    radial-gradient(4px 4px at 15% 75%, rgba(180, 220, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 3% 90%, rgba(255, 250, 240, 0.95), transparent),
+    radial-gradient(4px 4px at 92% 15%, rgba(220, 240, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 88% 35%, rgba(255, 255, 230, 0.9), transparent),
+    radial-gradient(4px 4px at 95% 60%, rgba(200, 220, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 85% 80%, rgba(255, 250, 220, 0.95), transparent),
+    radial-gradient(4px 4px at 90% 95%, rgba(230, 245, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 25% 5%, rgba(255, 255, 240, 0.9), transparent),
+    radial-gradient(4px 4px at 45% 8%, rgba(200, 230, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 65% 3%, rgba(255, 250, 200, 0.95), transparent),
+    radial-gradient(4px 4px at 75% 12%, rgba(220, 240, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 30% 92%, rgba(255, 255, 220, 0.9), transparent),
+    radial-gradient(4px 4px at 50% 98%, rgba(200, 220, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 70% 95%, rgba(255, 255, 230, 0.95), transparent),
+    radial-gradient(4px 4px at 18% 48%, rgba(180, 210, 255, 0.85), transparent),
+    radial-gradient(3px 3px at 82% 52%, rgba(255, 250, 240, 0.9), transparent),
+    radial-gradient(4px 4px at 22% 68%, rgba(230, 245, 255, 0.85), transparent);
+  background-size:
+    250% 250%, 230% 230%, 270% 270%, 210% 210%, 290% 290%,
+    240% 240%, 260% 260%, 220% 220%, 280% 280%, 200% 200%,
+    245% 245%, 235% 235%, 265% 265%, 215% 215%, 285% 285%,
+    255% 255%, 225% 225%, 275% 275%, 205% 205%, 295% 295%;
+  animation: menuSparkle 18s ease-in-out infinite;
+}
+
+@keyframes menuSparkle {
+  0%, 100% {
+    opacity: 0.7;
+    background-position:
+      5% 10%, 12% 30%, 8% 55%, 15% 75%, 3% 90%,
+      92% 15%, 88% 35%, 95% 60%, 85% 80%, 90% 95%,
+      25% 5%, 45% 8%, 65% 3%, 75% 12%, 30% 92%,
+      50% 98%, 70% 95%, 18% 48%, 82% 52%, 22% 68%;
+  }
+  33% {
+    opacity: 1;
+    background-position:
+      8% 15%, 15% 25%, 5% 60%, 18% 80%, 6% 85%,
+      95% 20%, 85% 40%, 92% 55%, 88% 75%, 93% 90%,
+      28% 8%, 48% 12%, 62% 6%, 78% 8%, 33% 88%,
+      53% 95%, 73% 92%, 15% 52%, 85% 48%, 25% 72%;
+  }
+  66% {
+    opacity: 0.85;
+    background-position:
+      3% 8%, 10% 35%, 10% 50%, 12% 70%, 5% 95%,
+      90% 12%, 90% 30%, 98% 65%, 82% 85%, 88% 98%,
+      22% 3%, 42% 5%, 68% 8%, 72% 15%, 28% 95%,
+      48% 92%, 68% 98%, 20% 45%, 80% 55%, 20% 65%;
+  }
 }
 
 .menu-header {
@@ -741,20 +959,20 @@ body {
 .skull-icon-large {
   font-size: 5rem;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 30px var(--color-primary));
+  filter: drop-shadow(0 0 30px rgba(91, 141, 217, 0.6));
   animation: float 3s ease-in-out infinite;
 }
 
 .game-title {
   font-size: 3.5rem;
-  color: var(--color-primary);
+  color: var(--color-gold);
   margin-bottom: 0.5rem;
-  text-shadow: 0 0 30px rgba(220, 38, 38, 0.8);
+  text-shadow: 0 0 30px rgba(240, 216, 144, 0.6);
   letter-spacing: 3px;
 }
 
 .game-subtitle {
-  color: #9ca3af;
+  color: #a0b0c0;
   font-size: 0.9rem;
   letter-spacing: 2px;
 }
@@ -771,8 +989,8 @@ body {
   width: 100%;
   padding: 1.5rem 2rem;
   background: 
-    linear-gradient(135deg, rgba(80, 20, 20, 0.9) 0%, rgba(120, 30, 30, 0.8) 50%, rgba(80, 20, 20, 0.9) 100%);
-  background-color: #4a1515;
+    linear-gradient(135deg, rgba(25, 50, 90, 0.9) 0%, rgba(50, 80, 130, 0.8) 50%, rgba(25, 50, 90, 0.9) 100%);
+  background-color: #1a3a5a;
   border: none;
   border-radius: 4px;
   display: flex;
@@ -790,34 +1008,34 @@ body {
   box-shadow: 
     inset 0 0 20px rgba(0, 0, 0, 0.5),
     inset 0 2px 4px rgba(255, 255, 255, 0.1),
-    0 0 0 3px #2a2a2a,
-    0 0 0 5px #4a4a4a,
-    0 0 0 6px #1a1a1a,
+    0 0 0 3px #2a3a4a,
+    0 0 0 5px #4a5a6a,
+    0 0 0 6px #1a2a3a,
     0 5px 15px rgba(0, 0, 0, 0.5);
   
-  /* Scratched/textured look */
+  /* Subtle texture */
   background-image: 
-    linear-gradient(135deg, rgba(80, 20, 20, 0.9) 0%, rgba(120, 30, 30, 0.8) 50%, rgba(80, 20, 20, 0.9) 100%),
+    linear-gradient(135deg, rgba(25, 50, 90, 0.9) 0%, rgba(50, 80, 130, 0.8) 50%, rgba(25, 50, 90, 0.9) 100%),
     repeating-linear-gradient(
       45deg,
       transparent,
       transparent 2px,
-      rgba(0, 0, 0, 0.03) 2px,
-      rgba(0, 0, 0, 0.03) 4px
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px
     );
 }
 
-/* Decorative skull/emblem at top center */
+/* Decorative emblem at top center */
 .btn-menu-primary::before {
-  content: '☠';
+  content: '✦';
   position: absolute;
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.5rem;
-  color: #c0c0c0;
+  color: var(--color-gold);
   text-shadow: 
-    0 0 10px rgba(255, 50, 50, 0.5),
+    0 0 10px rgba(240, 216, 144, 0.6),
     0 2px 4px rgba(0, 0, 0, 0.8);
   z-index: 10;
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.8));
@@ -832,13 +1050,13 @@ body {
   right: -8px;
   height: 60%;
   transform: translateY(-50%);
-  border-left: 3px solid #5a5a5a;
-  border-right: 3px solid #5a5a5a;
+  border-left: 3px solid #5a6a7a;
+  border-right: 3px solid #5a6a7a;
   pointer-events: none;
   
   /* Decorative side flourishes */
   background: 
-    linear-gradient(to bottom, transparent 0%, transparent 40%, #3a3a3a 40%, #3a3a3a 60%, transparent 60%, transparent 100%);
+    linear-gradient(to bottom, transparent 0%, transparent 40%, #3a4a5a 40%, #3a4a5a 60%, transparent 60%, transparent 100%);
   background-size: 3px 100%;
   background-position: left center, right center;
   background-repeat: no-repeat;
@@ -846,22 +1064,22 @@ body {
 
 .btn-menu-primary:hover {
   background: 
-    linear-gradient(135deg, rgba(100, 25, 25, 0.95) 0%, rgba(150, 40, 40, 0.9) 50%, rgba(100, 25, 25, 0.95) 100%);
+    linear-gradient(135deg, rgba(35, 65, 110, 0.95) 0%, rgba(70, 110, 160, 0.9) 50%, rgba(35, 65, 110, 0.95) 100%);
   transform: translateY(-3px);
   box-shadow: 
     inset 0 0 30px rgba(0, 0, 0, 0.4),
     inset 0 2px 4px rgba(255, 255, 255, 0.15),
-    0 0 0 3px #3a3a3a,
-    0 0 0 5px #5a5a5a,
-    0 0 0 6px #2a2a2a,
+    0 0 0 3px #3a4a5a,
+    0 0 0 5px #5a6a7a,
+    0 0 0 6px #2a3a4a,
     0 8px 25px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(150, 50, 50, 0.3);
+    0 0 20px rgba(91, 141, 217, 0.3);
 }
 
 .btn-menu-primary:hover::before {
-  color: #ff6666;
+  color: #fff8dc;
   text-shadow: 
-    0 0 15px rgba(255, 100, 100, 0.8),
+    0 0 15px rgba(255, 250, 220, 0.8),
     0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -892,7 +1110,7 @@ body {
 
 .btn-desc {
   font-size: 0.8rem;
-  color: #d0a080;
+  color: #a0c0e0;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -901,7 +1119,7 @@ body {
   width: 100%;
   padding: 1rem 1.5rem;
   background: 
-    linear-gradient(135deg, rgba(40, 30, 30, 0.9) 0%, rgba(60, 45, 45, 0.8) 50%, rgba(40, 30, 30, 0.9) 100%);
+    linear-gradient(135deg, rgba(30, 40, 55, 0.9) 0%, rgba(45, 55, 70, 0.8) 50%, rgba(30, 40, 55, 0.9) 100%);
   border: none;
   border-radius: 4px;
   color: var(--color-text);
@@ -916,20 +1134,20 @@ body {
   box-shadow: 
     inset 0 0 15px rgba(0, 0, 0, 0.5),
     inset 0 1px 3px rgba(255, 255, 255, 0.05),
-    0 0 0 2px #2a2a2a,
-    0 0 0 4px #3a3a3a,
+    0 0 0 2px #2a3a4a,
+    0 0 0 4px #3a4a5a,
     0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
 .btn-menu-secondary:hover {
   background: 
-    linear-gradient(135deg, rgba(60, 40, 40, 0.95) 0%, rgba(80, 55, 55, 0.9) 50%, rgba(60, 40, 40, 0.95) 100%);
+    linear-gradient(135deg, rgba(40, 55, 75, 0.95) 0%, rgba(55, 70, 90, 0.9) 50%, rgba(40, 55, 75, 0.95) 100%);
   transform: translateY(-2px);
   box-shadow: 
     inset 0 0 20px rgba(0, 0, 0, 0.4),
     inset 0 1px 3px rgba(255, 255, 255, 0.1),
-    0 0 0 2px #3a3a3a,
-    0 0 0 4px #4a4a4a,
+    0 0 0 2px #3a4a5a,
+    0 0 0 4px #4a5a6a,
     0 5px 15px rgba(0, 0, 0, 0.5);
   color: white;
 }
@@ -974,7 +1192,7 @@ body {
   max-width: 900px;
   width: 90%;
   padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(15, 25, 45, 0.85);
   backdrop-filter: blur(10px);
   border: 3px solid var(--color-secondary);
   border-radius: 15px;
@@ -1000,9 +1218,9 @@ body {
 .level-select-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--color-primary);
+  color: var(--color-gold);
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+  text-shadow: 0 0 20px rgba(240, 216, 144, 0.6);
 }
 
 .level-grid {
@@ -1015,8 +1233,8 @@ body {
 .level-button {
   aspect-ratio: 1;
   padding: 1rem;
-  background: linear-gradient(135deg, #374151, #1f2937);
-  border: 2px solid #4b5563;
+  background: linear-gradient(135deg, #2a3a4a, #1a2a3a);
+  border: 2px solid #4a5a6a;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s;
@@ -1032,7 +1250,7 @@ body {
 .level-button:hover {
   transform: scale(1.05);
   border-color: var(--color-primary);
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 20px rgba(91, 141, 217, 0.5);
 }
 
 .level-button.infernal {
@@ -1063,8 +1281,8 @@ body {
 .level-info {
   margin-top: 1.5rem;
   padding: 1rem;
-  background: rgba(40, 20, 10, 0.5);
-  border: 2px solid #8a5a40;
+  background: rgba(30, 50, 80, 0.4);
+  border: 2px solid #4a6a8a;
   border-radius: 10px;
   text-align: center;
 }
@@ -1078,8 +1296,8 @@ body {
 .level-details {
   margin-top: 1.5rem;
   padding: 1.5rem;
-  background: rgba(40, 20, 10, 0.5);
-  border: 2px solid #8a5a40;
+  background: rgba(30, 50, 80, 0.4);
+  border: 2px solid #4a6a8a;
   border-radius: 10px;
 }
 
@@ -1388,18 +1606,18 @@ body {
   max-width: 1200px;
   height: 100%;
   
-  /* Main frame border */
-  border: 4px solid #8a5a40;
+  /* Main frame border - silver/blue */
+  border: 4px solid #4a6a8a;
   border-radius: 8px;
   
   /* Outer glow effect */
   box-shadow: 
-    0 0 20px rgba(138, 90, 64, 0.5),
-    0 0 40px rgba(138, 90, 64, 0.2),
+    0 0 20px rgba(91, 141, 217, 0.4),
+    0 0 40px rgba(91, 141, 217, 0.2),
     inset 0 0 30px rgba(0, 0, 0, 0.5);
   
   /* Double border effect */
-  outline: 2px solid #5a3a2a;
+  outline: 2px solid #3a5a7a;
   outline-offset: 3px;
   
   overflow: hidden;
@@ -1455,84 +1673,84 @@ body {
 
 /* 
    LEVEL-SPECIFIC BACKGROUNDS
-   Replace URLs with your custom images
+   Fantasy Theme - Enchanted locations
  */
 
-/* Level 1 - Novice (Dark Forest / Crypt Entrance) */
+/* Level 1 - Novice (Enchanted Forest) */
 .battlefield.level-1-bg {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
     var(--bg-level-1);
-  /* Fallback gradient */
+  /* Fallback gradient - mystical forest */
   background: 
-    radial-gradient(ellipse at 50% 100%, rgba(20, 60, 20, 0.5), transparent 70%),
-    radial-gradient(ellipse at 20% 20%, rgba(0, 40, 0, 0.3), transparent 50%),
-    linear-gradient(to bottom, #0a1a0a 0%, #1a2a1a 50%, #0a0a0a 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(30, 80, 60, 0.5), transparent 70%),
+    radial-gradient(ellipse at 20% 20%, rgba(20, 60, 50, 0.3), transparent 50%),
+    linear-gradient(to bottom, #0a1a15 0%, #1a3a2a 50%, #0a1510 100%);
 }
 
-/* Level 2 - Warrior (Dungeon / Underground) */
+/* Level 2 - Warrior (Crystal Cavern) */
 .battlefield.level-2-bg {
   background-image: 
-    linear-gradient(to bottom, rgba(20, 10, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    linear-gradient(to bottom, rgba(10, 20, 40, 0.4), rgba(0, 0, 0, 0.6)),
     var(--bg-level-2);
-  /* Fallback gradient */
+  /* Fallback gradient - blue crystal caves */
   background: 
-    radial-gradient(ellipse at 50% 100%, rgba(40, 30, 80, 0.5), transparent 70%),
-    radial-gradient(ellipse at 80% 30%, rgba(20, 20, 60, 0.4), transparent 50%),
-    linear-gradient(to bottom, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(60, 100, 140, 0.5), transparent 70%),
+    radial-gradient(ellipse at 80% 30%, rgba(40, 80, 120, 0.4), transparent 50%),
+    linear-gradient(to bottom, #0a1525 0%, #1a3050 50%, #0a1020 100%);
 }
 
-/* Level 3 - Veteran (Volcanic Cavern) */
+/* Level 3 - Veteran (Ancient Ruins) */
 .battlefield.level-3-bg {
   background-image: 
-    linear-gradient(to bottom, rgba(40, 10, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    linear-gradient(to bottom, rgba(30, 25, 20, 0.3), rgba(0, 0, 0, 0.5)),
     var(--bg-level-3);
-  /* Fallback gradient */
+  /* Fallback gradient - golden ruins */
   background: 
-    radial-gradient(ellipse at 50% 100%, rgba(120, 40, 0, 0.6), transparent 70%),
-    radial-gradient(ellipse at 30% 40%, rgba(80, 20, 0, 0.4), transparent 50%),
-    linear-gradient(to bottom, #1a0a0a 0%, #3a1a0a 50%, #1a0a0a 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(120, 100, 60, 0.5), transparent 70%),
+    radial-gradient(ellipse at 30% 40%, rgba(100, 80, 40, 0.4), transparent 50%),
+    linear-gradient(to bottom, #1a1510 0%, #2a2520 50%, #151010 100%);
 }
 
-/* Level 4 - Master (Hellscape) */
+/* Level 4 - Master (Arcane Tower) */
 .battlefield.level-4-bg {
   background-image: 
-    linear-gradient(to bottom, rgba(60, 10, 0, 0.3), rgba(20, 0, 0, 0.6)),
+    linear-gradient(to bottom, rgba(40, 20, 60, 0.3), rgba(10, 5, 20, 0.6)),
     var(--bg-level-4);
-  /* Fallback gradient */
+  /* Fallback gradient - purple magic tower */
   background: 
-    radial-gradient(ellipse at 50% 100%, rgba(150, 30, 0, 0.6), transparent 70%),
-    radial-gradient(ellipse at 70% 20%, rgba(100, 20, 0, 0.5), transparent 50%),
-    linear-gradient(to bottom, #2a0a0a 0%, #4a0a0a 50%, #1a0000 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(100, 60, 140, 0.5), transparent 70%),
+    radial-gradient(ellipse at 70% 20%, rgba(80, 40, 120, 0.4), transparent 50%),
+    linear-gradient(to bottom, #150a20 0%, #2a1540 50%, #100a15 100%);
 }
 
-/* Level 5 - Infernal (The Abyss) */
+/* Level 5 - Infernal (Celestial Realm) */
 .battlefield.level-5-bg {
   background-image: 
-    linear-gradient(to bottom, rgba(80, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    linear-gradient(to bottom, rgba(20, 40, 80, 0.4), rgba(0, 10, 30, 0.7)),
     var(--bg-level-5);
-  /* Fallback gradient */
+  /* Fallback gradient - celestial/starry */
   background: 
-    radial-gradient(ellipse at 50% 50%, rgba(100, 0, 0, 0.5), transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(180, 40, 0, 0.6), transparent 50%),
-    radial-gradient(ellipse at 20% 30%, rgba(60, 0, 0, 0.4), transparent 40%),
-    linear-gradient(to bottom, #0a0000 0%, #1a0000 30%, #3a0a0a 70%, #0a0000 100%);
+    radial-gradient(ellipse at 50% 50%, rgba(100, 140, 200, 0.4), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(80, 120, 180, 0.5), transparent 50%),
+    radial-gradient(ellipse at 20% 30%, rgba(60, 100, 160, 0.3), transparent 40%),
+    linear-gradient(to bottom, #050a15 0%, #0a1530 30%, #152040 70%, #050a10 100%);
   
-  /* Extra dramatic effect for final level */
-  animation: abyssGlow 3s ease-in-out infinite;
+  /* Magical glow effect for final level */
+  animation: celestialGlow 3s ease-in-out infinite;
 }
 
-/* Abyss Glow Animation for Level 5 */
-@keyframes abyssGlow {
+/* Celestial Glow Animation for Level 5 */
+@keyframes celestialGlow {
   0%, 100% {
     box-shadow: 
       inset 0 0 50px rgba(0, 0, 0, 0.8),
-      inset 0 0 100px rgba(220, 38, 38, 0.2);
+      inset 0 0 100px rgba(91, 141, 217, 0.2);
   }
   50% {
     box-shadow: 
       inset 0 0 50px rgba(0, 0, 0, 0.8),
-      inset 0 0 150px rgba(220, 38, 38, 0.4);
+      inset 0 0 150px rgba(126, 200, 227, 0.3);
   }
 }
 
@@ -1769,7 +1987,7 @@ body {
 
 /* Word Display - ON TOP */
 .enemy-word-display {
-  background: rgba(127, 29, 29, 0.9);
+  background: rgba(30, 60, 100, 0.9);
   border: 2px solid var(--color-primary);
   padding: 0.4rem 1rem;
   border-radius: 8px;
@@ -1787,7 +2005,7 @@ body {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(255, 50, 50, 0.8));
+  filter: drop-shadow(0 0 15px rgba(91, 141, 217, 0.8));
   animation: float 2s ease-in-out infinite;
   transition: all 0.3s;
   transform: scaleX(-1) !important; /* Flip horizontally - face LEFT */
@@ -1796,7 +2014,7 @@ body {
 
 .floating-enemy:hover .enemy-image {
   transform: scaleX(-1) scale(1.15) !important; /* Keep flipped when hovering */
-  filter: drop-shadow(0 0 25px rgba(255, 50, 50, 1));
+  filter: drop-shadow(0 0 25px rgba(126, 200, 227, 1));
 }
 
 /* Shape Hint - BENEATH */
@@ -2643,8 +2861,8 @@ body {
 }
 
 .level-detail-card {
-  background: rgba(60, 30, 30, 0.6);
-  border: 2px solid #8a5a40;
+  background: rgba(30, 50, 80, 0.6);
+  border: 2px solid #4a6a8a;
   border-radius: 8px;
   padding: 1rem;
   display: flex;
@@ -2657,7 +2875,7 @@ body {
 }
 
 .level-detail-card:hover {
-  background: rgba(80, 40, 40, 0.8);
+  background: rgba(40, 65, 100, 0.8);
   border-color: var(--color-primary);
   transform: translateY(-2px);
 }
@@ -2981,7 +3199,7 @@ body {
 
 /* 
    AUDIO CONTROLS (Optional)
-   Uncomment if you want visible audio controls
+   Uncomment if needed visible audio controls
  */
 /*
 .audio-controls {
@@ -3011,9 +3229,9 @@ body {
   border-color: var(--color-primary);
 }
 */
-/* ===================================
+/* 
    AUTHENTICATION PAGES - SIGNUP & FORGOT PASSWORD
-=================================== */
+ */
 
 /* Sign Up Box */
 .signup-box {
@@ -3162,9 +3380,9 @@ body {
   color: white;
 }
 
-/* ===================================
+/* 
    SEARCH BAR - PRACTICE MODE
-=================================== */
+ */
 .search-container {
   position: relative;
   width: 100%;
@@ -3234,15 +3452,15 @@ body {
   font-style: italic;
 }
 
-/* ===================================
+/* 
    IMPROVED BACK TO MAIN MENU BUTTON
-=================================== */
+ */
 .btn-back-main {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, rgba(80, 40, 20, 0.9), rgba(60, 30, 15, 0.9));
+  background: linear-gradient(135deg, rgba(30, 50, 80, 0.9), rgba(20, 40, 70, 0.9));
   border: 2px solid var(--color-gold);
   border-radius: 8px;
   color: var(--color-gold);
@@ -3258,11 +3476,11 @@ body {
 }
 
 .btn-back-main:hover {
-  background: linear-gradient(135deg, rgba(100, 50, 25, 0.95), rgba(80, 40, 20, 0.95));
-  border-color: #ffd700;
-  color: #ffd700;
+  background: linear-gradient(135deg, rgba(40, 65, 100, 0.95), rgba(30, 55, 90, 0.95));
+  border-color: #fff8dc;
+  color: #fff8dc;
   transform: translateX(-5px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 20px rgba(91, 141, 217, 0.3);
 }
 
 .btn-back-icon {
@@ -3283,9 +3501,9 @@ body {
   display: none;
 }
 
-/* ===================================
+/* 
    RESPONSIVE - AUTH & SEARCH
-=================================== */
+ */
 @media (max-width: 768px) {
   .signup-box,
   .forgot-password-box {

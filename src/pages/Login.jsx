@@ -19,7 +19,7 @@ const Login = ({ onLogin, onSignUp, onForgotPassword }) => {
     <div className="screen login-screen">
       <div className="login-container">
         <div className="login-box">
-          <div className="skull-icon-login">☠️</div>
+          <img src="/images/ui/logo.png" alt="Logo" className="login-logo" />
           <h1 className="login-title">GREGG'S ABYSS</h1>
           <p className="login-subtitle">Master the ancient script or perish</p>
           
