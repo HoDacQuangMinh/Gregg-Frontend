@@ -1,42 +1,29 @@
 import React, { useState } from 'react';
 import './styles.css';
 
-// Import all page components
+// Import page components
 import Login from './pages/Login';
-import SignUp from './pages/Signup.jsx';
+import SignUp from './pages/Signup';
 import ForgotPassword from './pages/Forgotpassword';
 import Menu from './pages/Menu';
 import Practice from './pages/Practice';
 import Settings from './pages/Settings';
-import Levels from './pages/levels.jsx';
-import MainGame from './pages/main';
-
-// Game Over Component
-const GameOverScreen = ({ score, level, onRetry, onMenu }) => (
-  <div className="game-over-overlay">
-    <div className="game-over-content">
-      <div className="skull-icon-large">☠️</div>
-      <h2 className="game-over-title">DEFEATED</h2>
-      <p className="game-over-score">Final Score: {score}</p>
-      <p className="game-over-level">Level {level}</p>
-      
-      <div className="game-over-buttons">
-        <button className="btn-game-over" onClick={onRetry}>TRY AGAIN</button>
-        <button className="btn-game-over secondary" onClick={onMenu}>MAIN MENU</button>
-      </div>
-    </div>
-  </div>
-);
+import PhaserGame from './pages/Phasergame';
 
 // Main App Component
 export default function App() {
   const [screen, setScreen] = useState('login');
   const [username, setUsername] = useState('');
-  const [level, setLevel] = useState(1);
-  const [gameMode, setGameMode] = useState('campaign');
   const [highScore, setHighScore] = useState(0);
-  const [showGameOver, setShowGameOver] = useState(false);
-  const [finalScore, setFinalScore] = useState(0);
+  
+  // Game configuration for Phaser
+  const [gameConfig, setGameConfig] = useState({
+    charType: 'character_1',
+    musicOn: true,
+    mode: 'gradual',
+    manualSpeed: 100,
+    manualSpawnTime: 6000
+  });
 
   // Navigation Handlers
   const handleLogin = (name) => {
@@ -45,7 +32,6 @@ export default function App() {
   };
 
   const handleSignUp = (name, email, password) => {
-    // In a real app, this would create an account
     console.log('Sign up:', { name, email, password });
     setUsername(name);
     setScreen('menu');
@@ -56,42 +42,35 @@ export default function App() {
     setScreen('login');
   };
 
+  // Campaign now goes directly to Phaser game (infinite mode)
   const handleStartCampaign = () => {
-    setScreen('levels');
+    setScreen('game');
   };
 
+  // Practice mode uses your existing practice component
   const handleStartPractice = () => {
-    setGameMode('practice');
-    setLevel(1);
     setScreen('practice');
   };
 
-  const handleSelectLevel = (lvl) => {
-    setGameMode('campaign');
-    setLevel(lvl);
-    setScreen('game');
-  };
-
   const handleGameOver = (score) => {
-    setFinalScore(score);
     if (score > highScore) {
       setHighScore(score);
     }
-    setShowGameOver(true);
-  };
-
-  const handleRetry = () => {
-    setShowGameOver(false);
-    setScreen('game');
+    setScreen('menu');
   };
 
   const handleBackToMenu = () => {
-    setShowGameOver(false);
     setScreen('menu');
+  };
+
+  // Update game config (can be called from Settings)
+  const handleUpdateConfig = (newConfig) => {
+    setGameConfig(prev => ({ ...prev, ...newConfig }));
   };
 
   return (
     <div className="app-root">
+      {/* Login Screen */}
       {screen === 'login' && (
         <Login 
           onLogin={handleLogin}
@@ -100,6 +79,7 @@ export default function App() {
         />
       )}
 
+      {/* Sign Up Screen */}
       {screen === 'signup' && (
         <SignUp 
           onSignUp={handleSignUp}
@@ -107,12 +87,14 @@ export default function App() {
         />
       )}
 
+      {/* Forgot Password Screen */}
       {screen === 'forgot-password' && (
         <ForgotPassword 
           onBackToLogin={() => setScreen('login')}
         />
       )}
       
+      {/* Main Menu Screen */}
       {screen === 'menu' && (
         <Menu
           onStart={handleStartCampaign}
@@ -123,41 +105,29 @@ export default function App() {
         />
       )}
 
-      {screen === 'levels' && (
-        <Levels
-          onSelectLevel={handleSelectLevel}
-          onBack={() => setScreen('menu')}
-        />
-      )}
-
+      {/* Practice Mode */}
       {screen === 'practice' && (
         <Practice
-          onBack={() => setScreen('menu')}
+          onBack={handleBackToMenu}
         />
       )}
 
+      {/* Phaser Game (Campaign Mode - Infinite) */}
       {screen === 'game' && (
-        <>
-          <MainGame
-            level={level}
-            setLevel={setLevel}
-            onGameOver={handleGameOver}
-            onExit={() => setScreen('menu')}
-            mode={gameMode}
-          />
-          {showGameOver && (
-            <GameOverScreen
-              score={finalScore}
-              level={level}
-              onRetry={handleRetry}
-              onMenu={handleBackToMenu}
-            />
-          )}
-        </>
+        <PhaserGame
+          gameConfig={gameConfig}
+          onGameOver={handleGameOver}
+          onExit={handleBackToMenu}
+        />
       )}
 
+      {/* Settings Screen */}
       {screen === 'settings' && (
-        <Settings onBack={() => setScreen('menu')} />
+        <Settings 
+          onBack={handleBackToMenu}
+          gameConfig={gameConfig}
+          onUpdateConfig={handleUpdateConfig}
+        />
       )}
     </div>
   );

@@ -20,7 +20,7 @@ const Menu = ({ onStart, onPractice, onSettings, highScore, onLogout }) => {
             <span className="btn-icon">⚔️</span>
             <div className="btn-text-content">
               <span className="btn-title">ARCADE MODE</span>
-              <span className="btn-desc">5 Levels of Darkness</span>
+              <span className="btn-desc">Unleash the Magical</span>
             </div>
           </button>
 

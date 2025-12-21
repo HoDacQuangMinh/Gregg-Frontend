@@ -1,0 +1,207 @@
+{
+  "frames": {
+    "fireball/fireball_01.png": {
+      "frame": {
+        "x": 3,
+        "y": 3,
+        "w": 115,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 11,
+        "w": 115,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_05.png": {
+      "frame": {
+        "x": 3,
+        "y": 59,
+        "w": 106,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 11,
+        "w": 106,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_03.png": {
+      "frame": {
+        "x": 3,
+        "y": 115,
+        "w": 112,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 12,
+        "w": 112,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_04.png": {
+      "frame": {
+        "x": 115,
+        "y": 59,
+        "w": 112,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 112,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_08.png": {
+      "frame": {
+        "x": 124,
+        "y": 3,
+        "w": 112,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 112,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_07.png": {
+      "frame": {
+        "x": 3,
+        "y": 169,
+        "w": 111,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 12,
+        "w": 111,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_02.png": {
+      "frame": {
+        "x": 3,
+        "y": 223,
+        "w": 108,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 108,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "fireball/fireball_06.png": {
+      "frame": {
+        "x": 3,
+        "y": 277,
+        "w": 107,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 107,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 72
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.7",
+    "image": "fireball_texture.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 239,
+      "h": 328
+    },
+    "scale": 1
+  }
+}
