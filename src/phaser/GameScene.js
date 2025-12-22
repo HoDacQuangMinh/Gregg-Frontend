@@ -9,6 +9,7 @@ export class GameScene extends Phaser.Scene {
         this.score = 0;
         this.playerHealth = 3;
         this.isDead = false;
+        this.isPaused = false;
         
         // Flags for Animations
         this.isLevelStarting = false; 
@@ -77,6 +78,7 @@ export class GameScene extends Phaser.Scene {
             this.musicIndex = data.musicIndex || 1;
             this.isDead = false;
             this.isLevelEnding = false;
+            this.isPaused = false;
         } else {
             // Fresh start - get config from React via registry
             const reactConfig = this.game.registry.get('gameConfig');
@@ -89,6 +91,7 @@ export class GameScene extends Phaser.Scene {
             this.playerHealth = 3;
             this.isDead = false;
             this.isLevelEnding = false;
+            this.isPaused = false;
             this.availableBGs = Array.from({length: 24}, (_, i) => i + 1);
             this.usedEnemyTypes = [];
         }
@@ -214,7 +217,75 @@ export class GameScene extends Phaser.Scene {
         // Emit event to React that game started
         this.game.events.emit('gameStarted', { level: this.level });
 
+        // Listen for pause/resume from React
+        this.game.events.on('pauseGame', () => this.pauseGame());
+        this.game.events.on('resumeGame', () => this.resumeGame());
+
         this.startEntranceRun();
+    }
+
+    pauseGame() {
+        if (this.isDead || this.isPaused) return;
+        
+        this.isPaused = true;
+        this.physics.pause();
+        
+        // Pause all timers
+        if (this.spawnTimer) {
+            this.spawnTimer.paused = true;
+        }
+        
+        // Pause all enemy slash timers
+        this.enemies.children.each(enemy => {
+            if (enemy.slashTimer) {
+                enemy.slashTimer.paused = true;
+            }
+        });
+        
+        // Pause animations
+        this.player.anims.pause();
+        this.enemies.children.each(enemy => {
+            if (enemy.active) {
+                enemy.anims.pause();
+            }
+        });
+        
+        // Pause music
+        this.sound.pauseAll();
+        
+        this.game.events.emit('gamePaused');
+    }
+
+    resumeGame() {
+        if (!this.isPaused) return;
+        
+        this.isPaused = false;
+        this.physics.resume();
+        
+        // Resume all timers
+        if (this.spawnTimer) {
+            this.spawnTimer.paused = false;
+        }
+        
+        // Resume all enemy slash timers
+        this.enemies.children.each(enemy => {
+            if (enemy.slashTimer) {
+                enemy.slashTimer.paused = false;
+            }
+        });
+        
+        // Resume animations
+        this.player.anims.resume();
+        this.enemies.children.each(enemy => {
+            if (enemy.active) {
+                enemy.anims.resume();
+            }
+        });
+        
+        // Resume music
+        this.sound.resumeAll();
+        
+        this.game.events.emit('gameResumed');
     }
 
     startEntranceRun() {
@@ -475,7 +546,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     handleTyping(event) {
-        if (this.isDead || this.isLevelStarting || this.isLevelEnding) return; 
+        if (this.isDead || this.isLevelStarting || this.isLevelEnding || this.isPaused) return; 
         const key = event.key.toLowerCase();
         if (!/^[a-z]$/.test(key)) return;
         if (!this.activeTarget) {

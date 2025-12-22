@@ -10,6 +10,7 @@ const PhaserGame = ({ gameConfig, onGameOver, onExit }) => {
   const [currentLevel, setCurrentLevel] = useState(1);
   const [currentHealth, setCurrentHealth] = useState(3);
   const [showGameOver, setShowGameOver] = useState(false);
+  const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [finalStats, setFinalStats] = useState({ score: 0, level: 1 });
 
   useEffect(() => {
@@ -72,6 +73,14 @@ const PhaserGame = ({ gameConfig, onGameOver, onExit }) => {
       setShowGameOver(true);
     });
 
+    gameInstance.current.events.on('gamePaused', () => {
+      console.log('Game paused');
+    });
+
+    gameInstance.current.events.on('gameResumed', () => {
+      console.log('Game resumed');
+    });
+
     // Cleanup on unmount
     return () => {
       if (gameInstance.current) {
@@ -81,8 +90,23 @@ const PhaserGame = ({ gameConfig, onGameOver, onExit }) => {
     };
   }, [gameConfig]);
 
+  const handlePause = () => {
+    if (gameInstance.current) {
+      gameInstance.current.events.emit('pauseGame');
+      setShowPauseMenu(true);
+    }
+  };
+
+  const handleResume = () => {
+    if (gameInstance.current) {
+      gameInstance.current.events.emit('resumeGame');
+      setShowPauseMenu(false);
+    }
+  };
+
   const handleRetry = () => {
     setShowGameOver(false);
+    setShowPauseMenu(false);
     setCurrentScore(0);
     setCurrentLevel(1);
     setCurrentHealth(3);
@@ -144,13 +168,40 @@ const PhaserGame = ({ gameConfig, onGameOver, onExit }) => {
 
   return (
     <div className="screen game-screen phaser-game-screen">
-      {/* Retreat Button */}
-      <button className="btn-retreat phaser-retreat" onClick={handleExit}>
-        ← RETREAT
-      </button>
+      {/* Top Buttons */}
+      <div className="phaser-top-buttons">
+        <button className="btn-retreat phaser-retreat" onClick={handleExit}>
+          ← RETREAT
+        </button>
+        <button className="btn-pause phaser-pause" onClick={handlePause}>
+          ⏸ PAUSE
+        </button>
+      </div>
 
       {/* Phaser Game Container */}
       <div ref={gameContainer} className="phaser-container" />
+
+      {/* Pause Menu Overlay */}
+      {showPauseMenu && (
+        <div className="pause-overlay">
+          <div className="pause-content">
+            <h2 className="pause-title">PAUSED</h2>
+            <p className="pause-stats">Score: {currentScore} | Level: {currentLevel}</p>
+            
+            <div className="pause-buttons">
+              <button className="btn-pause-menu primary" onClick={handleResume}>
+                ▶ CONTINUE
+              </button>
+              <button className="btn-pause-menu" onClick={handleRetry}>
+                🔄 RESTART
+              </button>
+              <button className="btn-pause-menu secondary" onClick={handleExit}>
+                🚪 MAIN MENU
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Game Over Overlay */}
       {showGameOver && (
