@@ -57,14 +57,22 @@ const Settings = ({ onBack, gameConfig, onUpdateConfig }) => {
                 className={`char-option ${selectedChar === 'character_1' ? 'selected' : ''}`}
                 onClick={() => setSelectedChar('character_1')}
               >
-                <div className="char-preview">🧙‍♂️</div>
+                <img 
+                  src="/assets/player/character_1/idle/idle_01.png" 
+                  alt="Mage" 
+                  className="char-preview-img"
+                />
                 <span className="char-name">Mage</span>
               </div>
               <div 
                 className={`char-option ${selectedChar === 'character_2' ? 'selected' : ''}`}
                 onClick={() => setSelectedChar('character_2')}
               >
-                <div className="char-preview">🗡️</div>
+                <img 
+                  src="/assets/player/character_2/idle/idle_01.png" 
+                  alt="Rogue" 
+                  className="char-preview-img"
+                />
                 <span className="char-name">Rogue</span>
               </div>
             </div>
